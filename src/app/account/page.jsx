@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
-
-import { createClient } from "@/lib/supabase/server";
-import { logout } from "@/app/actions";
+import { logout } from "../(auth)/actions/page";
+import { createClient } from "../../../lib/supabase/server";
 
 export default async function AccountPage() {
   const supabase = await createClient();
