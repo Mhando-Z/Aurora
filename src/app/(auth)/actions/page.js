@@ -121,3 +121,62 @@ export async function logout() {
 
   redirect("/");
 }
+
+/*
+ * =========================================================
+ * GOOGLE AUTHENTICATION
+ * =========================================================
+ */
+
+export async function signInWithGoogle(formData) {
+  const next = safeRedirect(formData?.get("next"), "/account");
+
+  const supabase = await createClient();
+
+  const siteUrl = getSiteUrl();
+
+  const callbackUrl = `${siteUrl}/callback?next=${encodeURIComponent(next)}`;
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+
+    options: {
+      redirectTo: callbackUrl,
+    },
+  });
+
+  if (error) {
+    console.error("Google authentication error:", error);
+
+    redirect(
+      `/login?error=${encodeURIComponent("Unable to continue with Google.")}`,
+    );
+  }
+
+  if (!data?.url) {
+    redirect(
+      `/login?error=${encodeURIComponent(
+        "Google authentication could not be started.",
+      )}`,
+    );
+  }
+
+  /*
+   * signInWithOAuth() does not automatically redirect
+   * when executed server-side.
+   *
+   * Supabase gives us the provider authorization URL,
+   * so Next.js redirects the browser manually.
+   */
+  redirect(data.url);
+}
+
+export async function logout() {
+  const supabase = await createClient();
+
+  await supabase.auth.signOut();
+
+  revalidatePath("/", "layout");
+
+  redirect("/");
+}
