@@ -106,7 +106,7 @@ export default async function RegisterPage({ searchParams }) {
 
         <div className="text-center text-sm">
           Already have an account?{" "}
-          <Link href="/auth/login" className="font-medium underline">
+          <Link href="/login" className="font-medium underline">
             Sign in
           </Link>
         </div>
