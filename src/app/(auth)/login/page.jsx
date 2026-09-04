@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { login } from "../actions/page";
+import { login } from "../actions";
 
 function safeNext(value) {
   if (

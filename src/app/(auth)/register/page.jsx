@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { register } from "../actions/page";
+import { register } from "../actions";
 
 export default async function RegisterPage({ searchParams }) {
   const params = await searchParams;
