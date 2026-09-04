@@ -16,6 +16,12 @@ function safeRedirect(value, fallback = "/account") {
   return value;
 }
 
+function getSiteUrl() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+  return siteUrl.replace(/\/$/, "");
+}
+
 export async function login(formData) {
   const email = String(formData.get("email") || "")
     .trim()
@@ -84,7 +90,7 @@ export async function register(formData) {
 
   const supabase = await createClient();
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const siteUrl = getSiteUrl();
 
   const { error } = await supabase.auth.signUp({
     email,
@@ -109,17 +115,7 @@ export async function register(formData) {
     );
   }
 
-  redirect("/checkemail");
-}
-
-export async function logout() {
-  const supabase = await createClient();
-
-  await supabase.auth.signOut();
-
-  revalidatePath("/", "layout");
-
-  redirect("/");
+  redirect("/check-email");
 }
 
 /*

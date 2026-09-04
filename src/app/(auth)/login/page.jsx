@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { login } from "../actions";
+import { login, signInWithGoogle } from "../actions";
 
 function safeNext(value) {
   if (
@@ -94,6 +94,27 @@ export default async function LoginPage({ searchParams }) {
           </Link>
         </div>
       </div>
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t" />
+        </div>
+
+        <div className="relative flex justify-center text-sm">
+          <span className="bg-white px-3 text-gray-500">or</span>
+        </div>
+      </div>
+
+      <form action={signInWithGoogle}>
+        <input type="hidden" name="next" value={next} />
+
+        <button
+          type="submit"
+          className="flex w-full items-center justify-center gap-3 rounded-lg border px-4 py-3 font-medium transition hover:bg-gray-50"
+        >
+          <span className="text-lg font-bold">G</span>
+          Continue with Google
+        </button>
+      </form>
     </main>
   );
 }
