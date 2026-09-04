@@ -74,7 +74,7 @@ export default async function LoginPage({ searchParams }) {
           </div>
 
           <div className="text-right">
-            <Link href="/auth/forgot-password" className="text-sm underline">
+            <Link href="/forgot-password" className="text-sm underline">
               Forgot password?
             </Link>
           </div>
@@ -89,7 +89,7 @@ export default async function LoginPage({ searchParams }) {
 
         <div className="text-center text-sm">
           Don't have an account?{" "}
-          <Link href="/auth/register" className="font-medium underline">
+          <Link href="/register" className="font-medium underline">
             Create account
           </Link>
         </div>
