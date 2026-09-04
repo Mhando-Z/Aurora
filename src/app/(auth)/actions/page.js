@@ -2,8 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { createClient } from "../../../../lib/supabase/server";
 
-import { createClient } from "@/lib/supabase/server";
+// import { createClient } from "@/lib/supabase/server";
 
 function safeRedirect(value, fallback = "/account") {
   if (
@@ -28,9 +29,7 @@ export async function login(formData) {
 
   if (!email || !password) {
     redirect(
-      `/auth/login?error=${encodeURIComponent(
-        "Email and password are required.",
-      )}`,
+      `/login?error=${encodeURIComponent("Email and password are required.")}`,
     );
   }
 
@@ -65,7 +64,7 @@ export async function register(formData) {
 
   if (!fullName || !email || !password) {
     redirect(
-      `/auth/register?error=${encodeURIComponent(
+      `/register?error=${encodeURIComponent(
         "Please complete all required fields.",
       )}`,
     );
@@ -73,7 +72,7 @@ export async function register(formData) {
 
   if (password.length < 8) {
     redirect(
-      `/auth/register?error=${encodeURIComponent(
+      `/register?error=${encodeURIComponent(
         "Password must contain at least 8 characters.",
       )}`,
     );
@@ -81,7 +80,7 @@ export async function register(formData) {
 
   if (password !== confirmPassword) {
     redirect(
-      `/auth/register?error=${encodeURIComponent("Passwords do not match.")}`,
+      `/register?error=${encodeURIComponent("Passwords do not match.")}`,
     );
   }
 
@@ -106,7 +105,7 @@ export async function register(formData) {
     console.error("Aurora registration error:", error);
 
     redirect(
-      `/auth/register?error=${encodeURIComponent(
+      `/register?error=${encodeURIComponent(
         "Unable to create your account. Please try again.",
       )}`,
     );
