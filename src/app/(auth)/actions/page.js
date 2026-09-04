@@ -4,8 +4,6 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "../../../../lib/supabase/server";
 
-// import { createClient } from "@/lib/supabase/server";
-
 function safeRedirect(value, fallback = "/account") {
   if (
     typeof value !== "string" ||
@@ -42,7 +40,7 @@ export async function login(formData) {
 
   if (error) {
     redirect(
-      `/auth/login?error=${encodeURIComponent("Invalid email or password.")}`,
+      `/login?error=${encodeURIComponent("Invalid email or password.")}`,
     );
   }
 
@@ -111,7 +109,7 @@ export async function register(formData) {
     );
   }
 
-  redirect("/auth/check-email");
+  redirect("/checkemail");
 }
 
 export async function logout() {

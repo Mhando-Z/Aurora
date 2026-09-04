@@ -37,5 +37,5 @@ export async function GET(request) {
     console.error("Aurora email confirmation error:", error);
   }
 
-  return NextResponse.redirect(new URL("/auth/error", request.url));
+  return NextResponse.redirect(new URL("/error", request.url));
 }
