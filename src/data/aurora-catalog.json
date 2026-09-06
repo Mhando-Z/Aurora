@@ -1,0 +1,1417 @@
+{
+  "source": {
+    "workbook": "Aurora_Motorcycle_Spare_Parts_Master_Catalog.xlsx",
+    "models_count": 58,
+    "parts_count": 117,
+    "matrix_count": 6786
+  },
+  "brands": [
+    {
+      "name": "Haojue",
+      "slug": "haojue"
+    },
+    {
+      "name": "Boxer",
+      "slug": "boxer"
+    },
+    {
+      "name": "TVS",
+      "slug": "tvs"
+    },
+    {
+      "name": "Sinoray",
+      "slug": "sinoray"
+    }
+  ],
+  "motorcycle_models": [
+    {
+      "brand": "Haojue",
+      "name": "HJ125-9 MAX",
+      "slug": "hj125-9-max",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "XPRESS PLUS",
+      "slug": "xpress-plus",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "HJ125-8EX / XPRESS",
+      "slug": "hj125-8ex-xpress",
+      "engine_label": "124cc",
+      "engine_cc": 124.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "EX125",
+      "slug": "ex125",
+      "engine_label": "124.86cc",
+      "engine_cc": 124.86,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "HJ125-16N",
+      "slug": "hj125-16n",
+      "engine_label": "124cc",
+      "engine_cc": 124.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "EG125",
+      "slug": "eg125",
+      "engine_label": "124cc",
+      "engine_cc": 124.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "TF125",
+      "slug": "tf125",
+      "engine_label": "124cc",
+      "engine_cc": 124.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "TZ125 PRO",
+      "slug": "tz125-pro",
+      "engine_label": "124cc",
+      "engine_cc": 124.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "DH125",
+      "slug": "dh125",
+      "engine_label": "124cc",
+      "engine_cc": 124.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "HJ150-8",
+      "slug": "hj150-8",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "HJ150-6",
+      "slug": "hj150-6",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "EH150",
+      "slug": "eh150",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "EG150X",
+      "slug": "eg150x",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "DK150S",
+      "slug": "dk150s",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "HJ150-11",
+      "slug": "hj150-11",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "KA150",
+      "slug": "ka150",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "TF150",
+      "slug": "tf150",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "NK150",
+      "slug": "nk150",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "DK150J",
+      "slug": "dk150j",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "DR160S",
+      "slug": "dr160s",
+      "engine_label": "160cc",
+      "engine_cc": 160.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "DL160",
+      "slug": "dl160",
+      "engine_label": "160cc",
+      "engine_cc": 160.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "XCR300",
+      "slug": "xcr300",
+      "engine_label": "300cc",
+      "engine_cc": 300.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "TR300",
+      "slug": "tr300",
+      "engine_label": "300cc",
+      "engine_cc": 300.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "UD110",
+      "slug": "ud110",
+      "engine_label": "110cc",
+      "engine_cc": 110.0,
+      "motorcycle_type": "Underbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "RICH110",
+      "slug": "rich110",
+      "engine_label": "110cc",
+      "engine_cc": 110.0,
+      "motorcycle_type": "Underbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "HJ110-2",
+      "slug": "hj110-2",
+      "engine_label": "110cc",
+      "engine_cc": 110.0,
+      "motorcycle_type": "Underbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "UH115S",
+      "slug": "uh115s",
+      "engine_label": "115cc",
+      "engine_cc": 115.0,
+      "motorcycle_type": "Underbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "SPINNER115",
+      "slug": "spinner115",
+      "engine_label": "115cc",
+      "engine_cc": 115.0,
+      "motorcycle_type": "Underbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "VX125",
+      "slug": "vx125",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Scooter",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Haojue",
+      "name": "UHR150",
+      "slug": "uhr150",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Scooter",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM100 Old",
+      "slug": "boxer-bm100-old",
+      "engine_label": "100cc",
+      "engine_cc": 100.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM100 KS",
+      "slug": "boxer-bm100-ks",
+      "engine_label": "100cc",
+      "engine_cc": 100.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM100 ES",
+      "slug": "boxer-bm100-es",
+      "engine_label": "100cc",
+      "engine_cc": 100.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM100 HD",
+      "slug": "boxer-bm100-hd",
+      "engine_label": "100cc",
+      "engine_cc": 100.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM100 HD ES",
+      "slug": "boxer-bm100-hd-es",
+      "engine_label": "100cc",
+      "engine_cc": 100.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM125 X",
+      "slug": "boxer-bm125-x",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM125 HD",
+      "slug": "boxer-bm125-hd",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM150",
+      "slug": "boxer-bm150",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM150 HD",
+      "slug": "boxer-bm150-hd",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Boxer",
+      "name": "Boxer BM150 X",
+      "slug": "boxer-bm150-x",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "TVS",
+      "name": "Apache RTR 180",
+      "slug": "apache-rtr-180",
+      "engine_label": "177.4cc",
+      "engine_cc": 177.4,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "TVS",
+      "name": "HLX 150X 5 Gear",
+      "slug": "hlx-150x-5-gear",
+      "engine_label": "147.49cc",
+      "engine_cc": 147.49,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "TVS",
+      "name": "HLX 150 5 Gear",
+      "slug": "hlx-150-5-gear",
+      "engine_label": "147.49cc",
+      "engine_cc": 147.49,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "TVS",
+      "name": "HLX 125 5G",
+      "slug": "hlx-125-5g",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "TVS",
+      "name": "HLX 125 Refresh",
+      "slug": "hlx-125-refresh",
+      "engine_label": "124.53cc",
+      "engine_cc": 124.53,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "TVS",
+      "name": "HLX Plus",
+      "slug": "hlx-plus",
+      "engine_label": "99.7cc",
+      "engine_cc": 99.7,
+      "motorcycle_type": "Backbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "TVS",
+      "name": "XL 100 Heavy Duty",
+      "slug": "xl-100-heavy-duty",
+      "engine_label": "99.7cc",
+      "engine_cc": 99.7,
+      "motorcycle_type": "Underbone",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR150-12",
+      "slug": "sr150-12",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR125-8S",
+      "slug": "sr125-8s",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR200-16 PUMA",
+      "slug": "sr200-16-puma",
+      "engine_label": "200cc",
+      "engine_cc": 200.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "EXCEL SR125-X",
+      "slug": "excel-sr125-x",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR180-18M",
+      "slug": "sr180-18m",
+      "engine_label": "180cc",
+      "engine_cc": 180.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR150-9A",
+      "slug": "sr150-9a",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR180-6M",
+      "slug": "sr180-6m",
+      "engine_label": "180cc",
+      "engine_cc": 180.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR180-6",
+      "slug": "sr180-6",
+      "engine_label": "180cc",
+      "engine_cc": 180.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR150-18T",
+      "slug": "sr150-18t",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR150-9K",
+      "slug": "sr150-9k",
+      "engine_label": "150cc",
+      "engine_cc": 150.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    },
+    {
+      "brand": "Sinoray",
+      "name": "SR125-8",
+      "slug": "sr125-8",
+      "engine_label": "125cc",
+      "engine_cc": 125.0,
+      "motorcycle_type": "Street",
+      "source_reference": "Manufacturer/distributor model listing"
+    }
+  ],
+  "part_categories": [
+    {
+      "name": "Engine",
+      "slug": "engine"
+    },
+    {
+      "name": "Transmission",
+      "slug": "transmission"
+    },
+    {
+      "name": "Fuel",
+      "slug": "fuel"
+    },
+    {
+      "name": "Electrical",
+      "slug": "electrical"
+    },
+    {
+      "name": "Controls",
+      "slug": "controls"
+    },
+    {
+      "name": "Brakes",
+      "slug": "brakes"
+    },
+    {
+      "name": "Wheels",
+      "slug": "wheels"
+    },
+    {
+      "name": "Final drive",
+      "slug": "final-drive"
+    },
+    {
+      "name": "Suspension",
+      "slug": "suspension"
+    },
+    {
+      "name": "Frame/body",
+      "slug": "frame-body"
+    },
+    {
+      "name": "Service",
+      "slug": "service"
+    }
+  ],
+  "spare_parts": [
+    {
+      "category": "Engine",
+      "name": "Cylinder head assembly",
+      "slug": "cylinder-head-assembly",
+      "description": "Upper engine assembly containing valves and rocker components.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Cylinder head gasket",
+      "slug": "cylinder-head-gasket",
+      "description": "Seals cylinder head to cylinder block and prevents compression/coolant/oil leakage.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Cylinder block",
+      "slug": "cylinder-block",
+      "description": "Main cylinder housing for piston movement.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Piston",
+      "slug": "piston",
+      "description": "Moves inside cylinder and transfers combustion force to crankshaft.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Piston ring set",
+      "slug": "piston-ring-set",
+      "description": "Seals combustion pressure and controls oil on cylinder wall.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Piston pin",
+      "slug": "piston-pin",
+      "description": "Connects piston to connecting rod small end.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Connecting rod",
+      "slug": "connecting-rod",
+      "description": "Transfers piston force to crankshaft.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Crankshaft assembly",
+      "slug": "crankshaft-assembly",
+      "description": "Converts reciprocating piston motion into rotation.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Main crankshaft bearing",
+      "slug": "main-crankshaft-bearing",
+      "description": "Supports crankshaft rotation.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Crankshaft oil seal",
+      "slug": "crankshaft-oil-seal",
+      "description": "Prevents engine oil leakage around crankshaft.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Camshaft",
+      "slug": "camshaft",
+      "description": "Operates intake and exhaust valves in four-stroke engines.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Camshaft bearing",
+      "slug": "camshaft-bearing",
+      "description": "Supports camshaft rotation.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Camshaft sprocket",
+      "slug": "camshaft-sprocket",
+      "description": "Drives camshaft through timing system.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Timing/cam chain",
+      "slug": "timing-cam-chain",
+      "description": "Synchronizes crankshaft and camshaft.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Cam-chain tensioner",
+      "slug": "cam-chain-tensioner",
+      "description": "Maintains correct timing-chain tension.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Cam-chain guide",
+      "slug": "cam-chain-guide",
+      "description": "Controls timing-chain movement.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Intake valve",
+      "slug": "intake-valve",
+      "description": "Controls air/fuel entry into cylinder.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Exhaust valve",
+      "slug": "exhaust-valve",
+      "description": "Controls exhaust-gas exit.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Valve spring",
+      "slug": "valve-spring",
+      "description": "Returns valve to closed position.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Valve stem seal",
+      "slug": "valve-stem-seal",
+      "description": "Controls oil around valve stem.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Rocker arm",
+      "slug": "rocker-arm",
+      "description": "Transfers cam movement to valve.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Rocker arm shaft",
+      "slug": "rocker-arm-shaft",
+      "description": "Supports rocker arm.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Spark plug",
+      "slug": "spark-plug",
+      "description": "Ignites the air/fuel mixture in petrol engines.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Oil pump",
+      "slug": "oil-pump",
+      "description": "Circulates engine oil through lubrication passages.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Oil filter",
+      "slug": "oil-filter",
+      "description": "Removes contaminants from engine oil.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Oil filter element/strainer",
+      "slug": "oil-filter-element-strainer",
+      "description": "Filters engine oil before circulation.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Oil drain plug",
+      "slug": "oil-drain-plug",
+      "description": "Closes engine oil drain opening.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Clutch plate set",
+      "slug": "clutch-plate-set",
+      "description": "Transfers engine power through the clutch.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Clutch pressure plate",
+      "slug": "clutch-pressure-plate",
+      "description": "Applies pressure to clutch plates.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Engine",
+      "name": "Clutch springs",
+      "slug": "clutch-springs",
+      "description": "Provide clutch plate clamping force.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Gear-shift drum",
+      "slug": "gear-shift-drum",
+      "description": "Controls gear selection sequence.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Gear-shift fork",
+      "slug": "gear-shift-fork",
+      "description": "Moves transmission gears during shifting.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Drive gear 1st",
+      "slug": "drive-gear-1st",
+      "description": "Transmission gear for first ratio.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Drive gear 2nd",
+      "slug": "drive-gear-2nd",
+      "description": "Transmission gear for second ratio.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Drive gear 3rd",
+      "slug": "drive-gear-3rd",
+      "description": "Transmission gear for third ratio.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Drive gear 4th",
+      "slug": "drive-gear-4th",
+      "description": "Transmission gear for fourth ratio.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Drive gear 5th",
+      "slug": "drive-gear-5th",
+      "description": "Transmission gear for fifth ratio where fitted.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Counter/output shaft",
+      "slug": "counter-output-shaft",
+      "description": "Transfers gearbox output to final drive.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Transmission",
+      "name": "Kick-start shaft",
+      "slug": "kick-start-shaft",
+      "description": "Transfers kick lever movement to engine.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Fuel",
+      "name": "Carburetor assembly",
+      "slug": "carburetor-assembly",
+      "description": "Meters fuel/air mixture on carbureted models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Fuel",
+      "name": "Throttle body assembly",
+      "slug": "throttle-body-assembly",
+      "description": "Meters air/fuel on EFI models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Fuel",
+      "name": "Fuel injector",
+      "slug": "fuel-injector",
+      "description": "Injects fuel on EFI models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Fuel",
+      "name": "Fuel tap/petcock",
+      "slug": "fuel-tap-petcock",
+      "description": "Controls fuel flow from tank on applicable models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Fuel",
+      "name": "Air filter element",
+      "slug": "air-filter-element",
+      "description": "Filters intake air.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Fuel",
+      "name": "Intake manifold/pipe",
+      "slug": "intake-manifold-pipe",
+      "description": "Connects intake system to cylinder head.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Fuel",
+      "name": "Fuel tank cap",
+      "slug": "fuel-tank-cap",
+      "description": "Seals fuel tank opening.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "CDI/ECU/ignition control unit",
+      "slug": "cdi-ecu-ignition-control-unit",
+      "description": "Controls ignition and/or engine management depending on model.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Ignition coil / HT coil",
+      "slug": "ignition-coil-ht-coil",
+      "description": "Raises voltage for spark plug ignition.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Stator/magneto assembly",
+      "slug": "stator-magneto-assembly",
+      "description": "Generates electrical power and ignition signals.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Rectifier/regulator",
+      "slug": "rectifier-regulator",
+      "description": "Converts and regulates charging-system output.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Battery",
+      "slug": "battery",
+      "description": "Stores electrical energy for starting and accessories.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Starter motor",
+      "slug": "starter-motor",
+      "description": "Cranks engine on electric-start models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Starter relay/solenoid",
+      "slug": "starter-relay-solenoid",
+      "description": "Switches high-current starter circuit.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Pulser/pickup coil",
+      "slug": "pulser-pickup-coil",
+      "description": "Provides engine-position signal to ignition system.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Main wiring harness",
+      "slug": "main-wiring-harness",
+      "description": "Connects electrical components.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Horn",
+      "slug": "horn",
+      "description": "Audible warning device.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Headlamp assembly",
+      "slug": "headlamp-assembly",
+      "description": "Front lighting assembly.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Tail lamp assembly",
+      "slug": "tail-lamp-assembly",
+      "description": "Rear lighting assembly.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Turn signal lamp",
+      "slug": "turn-signal-lamp",
+      "description": "Directional indicator.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Electrical",
+      "name": "Ignition/steering lock",
+      "slug": "ignition-steering-lock",
+      "description": "Controls ignition and steering security.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Throttle cable",
+      "slug": "throttle-cable",
+      "description": "Transfers throttle grip movement.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Clutch cable",
+      "slug": "clutch-cable",
+      "description": "Operates cable-type clutch.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Front brake cable/hose",
+      "slug": "front-brake-cable-hose",
+      "description": "Transfers front brake control, depending on system.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Rear brake cable/rod",
+      "slug": "rear-brake-cable-rod",
+      "description": "Operates rear brake on applicable models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Gear-shift lever",
+      "slug": "gear-shift-lever",
+      "description": "Allows rider to select gears.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Kick-start lever",
+      "slug": "kick-start-lever",
+      "description": "Manual engine-start lever.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Front brake lever",
+      "slug": "front-brake-lever",
+      "description": "Hand lever for front brake.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Rear brake pedal",
+      "slug": "rear-brake-pedal",
+      "description": "Foot-operated rear brake control.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Handlebar",
+      "slug": "handlebar",
+      "description": "Main steering control.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Handlebar grips",
+      "slug": "handlebar-grips",
+      "description": "Rider hand grips.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Switch control LH",
+      "slug": "switch-control-lh",
+      "description": "Left-hand switch assembly.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Controls",
+      "name": "Switch control RH",
+      "slug": "switch-control-rh",
+      "description": "Right-hand switch assembly.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Brakes",
+      "name": "Front brake pad/shoe set",
+      "slug": "front-brake-pad-shoe-set",
+      "description": "Friction components for front braking system.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Brakes",
+      "name": "Rear brake shoe set",
+      "slug": "rear-brake-shoe-set",
+      "description": "Friction components for rear drum brake.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Brakes",
+      "name": "Front brake disc",
+      "slug": "front-brake-disc",
+      "description": "Rotating braking surface on disc-brake models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Brakes",
+      "name": "Brake caliper",
+      "slug": "brake-caliper",
+      "description": "Clamps brake pads onto disc.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Brakes",
+      "name": "Brake master cylinder",
+      "slug": "brake-master-cylinder",
+      "description": "Creates hydraulic pressure for disc brake.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Brakes",
+      "name": "Brake hose",
+      "slug": "brake-hose",
+      "description": "Carries hydraulic brake fluid.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Brakes",
+      "name": "Brake drum",
+      "slug": "brake-drum",
+      "description": "Rear/front drum braking surface on applicable models.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Front wheel rim",
+      "slug": "front-wheel-rim",
+      "description": "Supports front tyre.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Rear wheel rim",
+      "slug": "rear-wheel-rim",
+      "description": "Supports rear tyre.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Front wheel hub",
+      "slug": "front-wheel-hub",
+      "description": "Central front wheel mounting component.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Rear wheel hub",
+      "slug": "rear-wheel-hub",
+      "description": "Central rear wheel mounting component.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Wheel bearing",
+      "slug": "wheel-bearing",
+      "description": "Allows wheel rotation with low friction.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Wheel oil seal/dust seal",
+      "slug": "wheel-oil-seal-dust-seal",
+      "description": "Protects wheel bearing from contamination.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Front axle",
+      "slug": "front-axle",
+      "description": "Mounts front wheel to fork.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Rear axle",
+      "slug": "rear-axle",
+      "description": "Mounts rear wheel to swingarm.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Spokes",
+      "slug": "spokes",
+      "description": "Connect hub to spoke-type rim.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Wheels",
+      "name": "Wheel nuts/fasteners",
+      "slug": "wheel-nuts-fasteners",
+      "description": "Secure wheel components.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Final drive",
+      "name": "Drive chain",
+      "slug": "drive-chain",
+      "description": "Transfers gearbox output to rear wheel.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Final drive",
+      "name": "Front/drive sprocket",
+      "slug": "front-drive-sprocket",
+      "description": "Transfers gearbox output to chain.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Final drive",
+      "name": "Rear/driven sprocket",
+      "slug": "rear-driven-sprocket",
+      "description": "Transfers chain power to rear wheel.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Final drive",
+      "name": "Chain adjuster",
+      "slug": "chain-adjuster",
+      "description": "Controls rear-wheel/chain alignment.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Final drive",
+      "name": "Chain guide/guard",
+      "slug": "chain-guide-guard",
+      "description": "Controls or protects drive chain.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Suspension",
+      "name": "Front fork assembly",
+      "slug": "front-fork-assembly",
+      "description": "Front suspension and steering assembly.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Suspension",
+      "name": "Fork seal",
+      "slug": "fork-seal",
+      "description": "Seals front fork oil.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Suspension",
+      "name": "Fork dust seal",
+      "slug": "fork-dust-seal",
+      "description": "Protects fork seal from dirt.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Suspension",
+      "name": "Rear shock absorber",
+      "slug": "rear-shock-absorber",
+      "description": "Rear suspension component.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Suspension",
+      "name": "Swingarm bush/bearing",
+      "slug": "swingarm-bush-bearing",
+      "description": "Supports swingarm movement.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Fuel tank",
+      "slug": "fuel-tank",
+      "description": "Stores fuel.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Side cover",
+      "slug": "side-cover",
+      "description": "Protective/decorative side body panel.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Front mudguard/fender",
+      "slug": "front-mudguard-fender",
+      "description": "Protects rider from front-wheel spray.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Rear mudguard/fender",
+      "slug": "rear-mudguard-fender",
+      "description": "Protects rider from rear-wheel spray.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Headlamp bracket",
+      "slug": "headlamp-bracket",
+      "description": "Mounts headlamp.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Seat assembly",
+      "slug": "seat-assembly",
+      "description": "Rider/passenger seating assembly.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Footrest/footpeg",
+      "slug": "footrest-footpeg",
+      "description": "Rider or passenger foot support.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Center stand",
+      "slug": "center-stand",
+      "description": "Supports motorcycle upright.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Side stand",
+      "slug": "side-stand",
+      "description": "Supports parked motorcycle.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Engine mounting bracket",
+      "slug": "engine-mounting-bracket",
+      "description": "Secures engine to frame.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Frame/body",
+      "name": "Rear carrier",
+      "slug": "rear-carrier",
+      "description": "Cargo/passenger support where fitted.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Service",
+      "name": "Gasket set / engine gasket kit",
+      "slug": "gasket-set-engine-gasket-kit",
+      "description": "Collection of seals for engine service.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Service",
+      "name": "O-ring assortment",
+      "slug": "o-ring-assortment",
+      "description": "Sealing rings for engine/fuel systems.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Service",
+      "name": "Oil seal kit",
+      "slug": "oil-seal-kit",
+      "description": "Rotating-shaft seals used in engine/transmission.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Service",
+      "name": "Bearing kit",
+      "slug": "bearing-kit",
+      "description": "Replacement bearings for applicable assemblies.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Service",
+      "name": "Clutch cable adjuster",
+      "slug": "clutch-cable-adjuster",
+      "description": "Allows clutch cable free-play adjustment.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Service",
+      "name": "Brake return spring",
+      "slug": "brake-return-spring",
+      "description": "Returns brake mechanism after application.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    },
+    {
+      "category": "Service",
+      "name": "Chain-and-sprocket kit",
+      "slug": "chain-and-sprocket-kit",
+      "description": "Matched final-drive replacement set.",
+      "typical_replacement_reason": "Wear, damage, scheduled service, leakage, electrical failure or model-specific fault"
+    }
+  ]
+}

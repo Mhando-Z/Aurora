@@ -2,6 +2,7 @@
   "name": "auroras",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,6 +20,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-icons": "^5.7.0",
+    "react-toastify": "^11.1.0",
     "sanity": "^6.12.0",
     "styled-components": "^6.5.3"
   },
