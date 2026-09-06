@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import AddToCartButton from "@/components/products/AddToCartButton";
 
 function money(value, currency = "TZS") {
   return new Intl.NumberFormat("en-TZ", {
@@ -156,6 +157,11 @@ export default async function ProductDetailPage({ params }) {
               manufacturer-verified.
             </p>
           </div>
+
+          <AddToCartButton
+            listingId={product.id}
+            availableQuantity={product.quantity}
+          />
         </section>
       </div>
     </main>

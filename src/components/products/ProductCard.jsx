@@ -11,7 +11,9 @@ function money(value, currency = "TZS") {
 
 export default function ProductCard({ product }) {
   const images = [...(product.images ?? [])].sort(
-    (a, b) => Number(b.is_primary) - Number(a.is_primary) || a.sort_order - b.sort_order,
+    (a, b) =>
+      Number(b.is_primary) - Number(a.is_primary) ||
+      a.sort_order - b.sort_order,
   );
   const image = images[0];
 
@@ -47,7 +49,9 @@ export default function ProductCard({ product }) {
           {money(product.price, product.currency)}
         </p>
         <p className="mt-1 text-xs text-black/50">
-          {product.quantity > 0 ? `${product.quantity} in stock` : "Out of stock"}
+          {product.quantity > 0
+            ? `${product.quantity} in stock`
+            : "Out of stock"}
         </p>
       </div>
     </Link>

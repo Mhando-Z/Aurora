@@ -1,0 +1,36 @@
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import CartClient from "@/components/cart/CartClient";
+
+export const metadata = {
+  title: "Cart | Aurora",
+};
+
+export default async function CartPage() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
+  return (
+    <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">
+          Aurora
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-5xl">
+          Shopping cart
+        </h1>
+
+        <div className="mt-8">
+          <CartClient />
+        </div>
+      </div>
+    </main>
+  );
+}

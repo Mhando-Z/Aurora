@@ -10,7 +10,8 @@ export default async function ProductsPage() {
 
   const { data: products, error } = await supabase
     .from("product_listings")
-    .select(`
+    .select(
+      `
       id,
       title,
       price,
@@ -25,7 +26,8 @@ export default async function ProductsPage() {
         sort_order,
         is_primary
       )
-    `)
+    `,
+    )
     .eq("status", "published")
     .order("published_at", { ascending: false })
     .limit(48);
