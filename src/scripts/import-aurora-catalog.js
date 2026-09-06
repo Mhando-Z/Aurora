@@ -6,9 +6,8 @@ import { createClient } from "@supabase/supabase-js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const supabaseUrl = "https://gdagjlvlwmagvonhepsc.supabase.co";
-const serviceRoleKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdkYWdqbHZsd21hZ3ZvbmhlcHNjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4ODUxNjY5OSwiZXhwIjoyMTA0MDkyNjk5fQ.YQemsZvMqDQ441eQ6lZ569N_GOwCG1mYMkV2tIPO7QQ";
+const supabaseUrl = process.env.SUPABASE_URL;
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!supabaseUrl || !serviceRoleKey) {
   throw new Error(
