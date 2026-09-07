@@ -18,7 +18,7 @@ export const metadata = {
   icon: {
     rel: "icon",
     type: "image/png",
-    url: "../../public/Aurora.png",
+    url: "../../public/Aurora logo.png",
   },
 };
 
