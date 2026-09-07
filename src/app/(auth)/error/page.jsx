@@ -23,7 +23,7 @@ const rise = {
 
 export default function AuthErrorPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#0B1120] px-6 py-16">
+    <main className="flex min-h-screen items-center justify-center px-6 py-16">
       <motion.div
         variants={container}
         initial="hidden"
@@ -78,7 +78,7 @@ export default function AuthErrorPage() {
 
         <motion.div
           variants={rise}
-          className="mb-2 text-sm font-medium text-rose-300"
+          className="mb-2 text-sm font-medium text-rose-800"
         >
           Sign-in link invalid
         </motion.div>
