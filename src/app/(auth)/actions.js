@@ -115,7 +115,7 @@ export async function register(formData) {
     );
   }
 
-  redirect("/check-email");
+  redirect("/checkemail");
 }
 
 /*

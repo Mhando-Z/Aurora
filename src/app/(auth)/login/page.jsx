@@ -147,7 +147,7 @@ export default async function LoginPage({ searchParams }) {
       <div className="w-full max-w-lg">
         {/* Card */}
         <div className="rounded-2xl  md:p-8 ">
-          {/* Brand mark */}
+          {/* Brand logo */}
           <div className="justify-center">
             <Image src={Auroralogo} alt="Aurora Logo" className="" />
           </div>
@@ -277,7 +277,7 @@ export default async function LoginPage({ searchParams }) {
           </form>
         </div>
 
-        <p className="mt-6 text-center text-sm text-gray-500">
+        <p className="mt-2 text-center text-sm text-gray-500">
           Don&apos;t have an account?{" "}
           <Link
             href="/register"
