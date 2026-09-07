@@ -113,7 +113,7 @@ export default function CheckEmailPage() {
         <motion.div variants={rise} className="mt-6">
           <Link
             href="/login"
-            className="inline-flex items-center gap-1.5 text-sm  transition-colors hover:text-slate-200"
+            className="inline-flex items-center gap-1.5 text-sm  transition-colors"
           >
             <ArrowLeft className="h-4 w-4" strokeWidth={2} />
             Return to sign in
