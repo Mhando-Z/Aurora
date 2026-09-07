@@ -1,8 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 const NEXT_PUBLIC_SUPABASE_URL = "https://gdagjlvlwmagvonhepsc.supabase.co";
-const SUPABASE_SERVICE_ROLE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdkYWdqbHZsd21hZ3ZvbmhlcHNjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4ODUxNjY5OSwiZXhwIjoyMTA0MDkyNjk5fQ.YQemsZvMqDQ441eQ6lZ569N_GOwCG1mYMkV2tIPO7QQ";
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 const supabase = createClient(
   NEXT_PUBLIC_SUPABASE_URL,
