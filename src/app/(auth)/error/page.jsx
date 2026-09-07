@@ -28,7 +28,7 @@ export default function AuthErrorPage() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="w-full max-w-md rounded-2xl border border-white/10 bg-white/[0.03] p-10 text-center backdrop-blur-sm"
+        className="w-full max-w-md rounded-2xl border border-gray-900 bg-white/[0.03] p-10 text-center backdrop-blur-sm"
       >
         {/* Icon + error badge */}
         <motion.div variants={rise} className="relative mx-auto mb-8 h-20 w-20">
@@ -56,9 +56,9 @@ export default function AuthErrorPage() {
               opacity: { duration: 0.3, delay: 0.2 },
               x: { duration: 0.5, delay: 0.65, ease: "easeInOut" },
             }}
-            className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/10 bg-[#111a2e]"
+            className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/10 bg-black"
           >
-            <KeyRound className="h-8 w-8 text-slate-300" strokeWidth={1.5} />
+            <KeyRound className="h-8 w-8 text-white" strokeWidth={1.5} />
           </motion.div>
 
           <motion.div
@@ -92,7 +92,7 @@ export default function AuthErrorPage() {
 
         <motion.p
           variants={rise}
-          className="mx-auto mt-3 max-w-xs text-[15px] leading-relaxed text-slate-400"
+          className="mx-auto mt-3 max-w-xs text-[15px] leading-relaxed text-gray-700"
         >
           This link has expired or was already used. Request a new one from the
           sign-in page to continue.
