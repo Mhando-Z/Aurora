@@ -347,7 +347,7 @@ export default async function RegisterPage({ searchParams }) {
 
           <RegisterForm registerAction={register} />
 
-          <form className="mt-2" action={signInWithGoogle}>
+          <form className="mt-3" action={signInWithGoogle}>
             <input type="hidden" name="next" value={next} />
 
             <button
