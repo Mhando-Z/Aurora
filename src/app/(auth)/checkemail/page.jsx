@@ -103,7 +103,7 @@ export default function CheckEmailPage() {
             Didn't get it?{" "}
             <button
               type="button"
-              className=" underline cursor-pointer underline-offset-4 transition-colors300"
+              className=" hover:underline text-blue-900 cursor-pointer hover:underline-offset-4 transition-colors300"
             >
               Resend email
             </button>
