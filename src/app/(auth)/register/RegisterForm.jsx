@@ -340,12 +340,11 @@ export default function RegisterForm({ registerAction }) {
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-gray-800 active:scale-[0.99]"
+          className="w-full cursor-pointer rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-gray-800 active:scale-[0.99]"
         >
           Create account
         </button>
       </form>
-    
     </div>
   );
 }
