@@ -347,7 +347,7 @@ export default async function RegisterPage({ searchParams }) {
 
           <RegisterForm registerAction={register} />
 
-          <form action={signInWithGoogle}>
+          <form className="mt-2" action={signInWithGoogle}>
             <input type="hidden" name="next" value={next} />
 
             <button
@@ -376,7 +376,7 @@ export default async function RegisterPage({ searchParams }) {
             </button>
           </form>
 
-          <p className="mt-6 text-center text-xs leading-relaxed text-gray-400">
+          <p className="mt-4 text-center text-xs leading-relaxed text-gray-400">
             By creating an account, you agree to Aurora&apos;s{" "}
             <Link
               href="/terms"
@@ -395,7 +395,7 @@ export default async function RegisterPage({ searchParams }) {
           </p>
         </div>
 
-        <p className="mt-6 mb-10 text-center text-sm text-gray-500">
+        <p className="mt-4 mb-10 text-center text-sm text-gray-500">
           Already have an account?{" "}
           <Link
             href="/login"
