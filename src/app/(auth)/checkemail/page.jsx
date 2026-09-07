@@ -28,7 +28,7 @@ export default function CheckEmailPage() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="w-full max-w-md rounded-2xl border border-white/10 bg-white p-10 text-center backdrop-blur-sm"
+        className="w-full max-w-md rounded-2xl border shadow-2xs border-gray-900 bg-white p-10 text-center backdrop-blur-sm"
       >
         {/* Icon + congratulatory check badge */}
         <motion.div variants={rise} className="relative mx-auto mb-8 h-20 w-20">
