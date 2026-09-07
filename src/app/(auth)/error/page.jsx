@@ -85,7 +85,7 @@ export default function AuthErrorPage() {
 
         <motion.h1
           variants={rise}
-          className="text-2xl font-semibold tracking-tight text-slate-50"
+          className="text-2xl font-semibold tracking-tight"
         >
           Authentication failed
         </motion.h1>
@@ -101,13 +101,13 @@ export default function AuthErrorPage() {
         <motion.div variants={rise} className="mt-8">
           <Link
             href="/login"
-            className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-medium text-[#0B1120] transition-colors hover:bg-slate-200"
+            className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors "
           >
             Return to sign in
           </Link>
         </motion.div>
 
-        <motion.div variants={rise} className="mt-5">
+        {/* <motion.div variants={rise} className="mt-5">
           <Link
             href="/support"
             className="inline-flex items-center gap-1.5 text-sm text-slate-500 transition-colors hover:text-slate-300"
@@ -115,7 +115,7 @@ export default function AuthErrorPage() {
             <ArrowLeft className="h-4 w-4" strokeWidth={2} />
             Contact support instead
           </Link>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </main>
   );
