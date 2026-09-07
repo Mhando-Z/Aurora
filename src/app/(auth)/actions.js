@@ -115,7 +115,7 @@ export async function register(formData) {
     );
   }
 
-  redirect("/checkemail");
+  redirect(`/checkemail?email=${encodeURIComponent(email)}`);
 }
 
 /*
