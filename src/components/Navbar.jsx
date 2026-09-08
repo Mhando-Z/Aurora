@@ -25,8 +25,8 @@ function Navbar() {
             <Link href="/" className="text-gray-700 hover:text-gray-900">
               Home
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-gray-900">
-              About
+            <Link href="/orders" className="text-gray-700 hover:text-gray-900">
+              Orders
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-gray-900">
               Contact
@@ -34,12 +34,12 @@ function Navbar() {
           </nav>
           {/* profile section */}
           <div className="flex items-center gap-4">
-            <div>
+            <Link href="/cart" className="cursor-pointer">
               <ShoppingCart className="h-6 w-6 text-gray-700 hover:text-gray-900" />
-            </div>
+            </Link>
             <div className="">
               <button className="cursor-pointer py-2 px-4 rounded-lg bg-black text-white hover:text-gray-900">
-                sign in/ sign up
+                sign in | sign up
               </button>
             </div>
           </div>

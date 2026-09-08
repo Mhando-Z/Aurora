@@ -18,7 +18,7 @@ export default async function CheckoutPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
+    <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">
       <div className="mx-auto max-w-6xl">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">
           Secure checkout
