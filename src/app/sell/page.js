@@ -2,11 +2,12 @@ import CreateListingForm from "@/components/products/CreateListingForm";
 
 export const metadata = {
   title: "Sell a Spare Part | Aurora",
+  description: "List your motorcycle spare parts for sale on Aurora.",
 };
 
 export default function SellPage() {
   return (
-    <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
+    <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">
       <div className="mx-auto mb-8 max-w-5xl">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-black/50">
           Aurora Marketplace
@@ -15,7 +16,8 @@ export default function SellPage() {
           Sell a motorcycle spare part
         </h1>
         <p className="mt-3 max-w-2xl text-black/60">
-          Choose fitment from Aurora’s reference catalog, add seller-specific product details, then upload images to Sanity.
+          Choose fitment from Aurora’s reference catalog, add seller-specific
+          product details, then upload images to Sanity.
         </p>
       </div>
 
