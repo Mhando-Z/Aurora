@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { register, signInWithGoogle } from "../actions";
+import { register } from "../actions";
 import RegisterForm from "./RegisterForm";
 import Image from "next/image";
 import Auroralogo from "../../../../public/Aurora.png";
+import { ArrowLeft } from "lucide-react";
 
 const metadata = {
   title: "Register - Aurora",
@@ -69,35 +70,6 @@ export default async function RegisterPage({ searchParams }) {
 
           <RegisterForm registerAction={register} />
 
-          <form className="mt-3" action={signInWithGoogle}>
-            <input type="hidden" name="next" value={next} />
-
-            <button
-              type="submit"
-              className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 active:scale-[0.99]"
-            >
-              <svg className="h-4 w-4" viewBox="0 0 24 24">
-                <path
-                  fill="#4285F4"
-                  d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46c-.28 1.5-1.13 2.78-2.4 3.63v3.02h3.88c2.27-2.09 3.58-5.17 3.58-8.84z"
-                />
-                <path
-                  fill="#34A853"
-                  d="M12 24c3.24 0 5.96-1.07 7.94-2.9l-3.88-3.02c-1.08.72-2.45 1.15-4.06 1.15-3.13 0-5.78-2.11-6.72-4.95H1.28v3.11C3.25 21.3 7.31 24 12 24z"
-                />
-                <path
-                  fill="#FBBC05"
-                  d="M5.28 14.28A7.2 7.2 0 0 1 4.9 12c0-.79.14-1.56.38-2.28V6.61H1.28A11.98 11.98 0 0 0 0 12c0 1.93.46 3.76 1.28 5.39z"
-                />
-                <path
-                  fill="#EA4335"
-                  d="M12 4.77c1.76 0 3.34.6 4.59 1.79l3.44-3.44C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.7 1.28 6.61l4 3.11C6.22 6.88 8.87 4.77 12 4.77z"
-                />
-              </svg>
-              Continue with Google
-            </button>
-          </form>
-
           <p className="mt-4 text-center text-xs leading-relaxed text-gray-400">
             By creating an account, you agree to Aurora&apos;s{" "}
             <Link
@@ -129,24 +101,20 @@ export default async function RegisterPage({ searchParams }) {
       </div>
 
       {/* home button */}
-      <div className="absolute top-6 left-4  md:left-6 bg-black rounded-full px-3 p-2">
-        <Link href="/" className="text-white text-sm flex items-center gap-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="h-5 w-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h 8.25"
-            />
-          </svg>
-
-          <p>Home</p>
+      <div className="absolute left-4 top-5 md:left-6 md:top-6">
+        <Link
+          href="/"
+          className="
+            flex items-center gap-1.5 rounded-full bg-black
+            px-3 py-2 text-sm text-white
+            transition
+            hover:bg-gray-800
+            focus:outline-none focus:ring-2 focus:ring-black/20 focus:ring-offset-2
+            active:scale-[0.98]
+          "
+        >
+          <ArrowLeft className="h-4 w-4" />
+          <span>Home</span>
         </Link>
       </div>
     </main>
