@@ -111,7 +111,7 @@ export default function LoginClient({ error, next }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <main className="relative flex min-h-screen items-center justify-center bg-gray-50 px-5 py-10 sm:px-6">
+    <main className="relative flex min-h-screen items-center justify-center bg-gray-50 px-5 py-10 md:py-0 sm:px-6">
       {/* Home */}
       <div className="absolute left-4 top-5 md:left-6 md:top-6">
         <Link
