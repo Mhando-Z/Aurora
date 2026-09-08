@@ -138,7 +138,7 @@ export default function LoginClient({ error, next }) {
               src={Auroralogo}
               alt="Aurora Logo"
               priority
-              className="h-auto w-auto max-w-[220px]"
+              className="h-auto w-auto max-w-100"
             />
           </div>
 

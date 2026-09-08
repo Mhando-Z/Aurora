@@ -31,8 +31,13 @@ export default async function RegisterPage({ searchParams }) {
       <div className="w-full max-w-md">
         <div className="">
           {/* Brand logo */}
-          <div className="justify-center">
-            <Image src={Auroralogo} alt="Aurora Logo" className="" />
+          <div className="flex justify-center">
+            <Image
+              src={Auroralogo}
+              alt="Aurora Logo"
+              priority
+              className="h-auto w-auto max-w-100"
+            />
           </div>
           <div className="mb-2">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900">
