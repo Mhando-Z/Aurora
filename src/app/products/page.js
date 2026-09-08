@@ -33,7 +33,7 @@ export default async function ProductsPage() {
     .limit(48);
 
   return (
-    <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
+    <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex items-end justify-between gap-6">
           <div>
