@@ -1386,7 +1386,7 @@ export default function CreateListingForm() {
       {/* Submit */}
       <motion.div
         variants={prefersReducedMotion ? undefined : SECTION_VARIANTS}
-        className="sticky bottom-4 flex items-center justify-between gap-4 rounded-3xl border border-black/10 bg-white/90 p-4 shadow-sm backdrop-blur"
+        className="flex items-center justify-between gap-4 rounded-3xl border border-black/10 bg-white/90 p-4 shadow-sm backdrop-blur"
       >
         <p className="hidden text-sm text-black/50 sm:block">
           {completedCount === steps.length
