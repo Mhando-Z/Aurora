@@ -4,6 +4,7 @@ import React from "react";
 import Auroralogo from "../../public/Auroraicon.png";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
 
 function Navbar() {
   return (
@@ -21,15 +22,15 @@ function Navbar() {
         <div className="flex items-center gap-4">
           {/* navigation links */}
           <nav className="flex gap-4">
-            <a href="#" className="text-gray-700 hover:text-gray-900">
+            <Link href="/" className="text-gray-700 hover:text-gray-900">
               Home
-            </a>
-            <a href="#" className="text-gray-700 hover:text-gray-900">
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-gray-900">
               About
-            </a>
-            <a href="#" className="text-gray-700 hover:text-gray-900">
+            </Link>
+            <Link href="/contact" className="text-gray-700 hover:text-gray-900">
               Contact
-            </a>
+            </Link>
           </nav>
           {/* profile section */}
           <div className="flex items-center gap-4">
