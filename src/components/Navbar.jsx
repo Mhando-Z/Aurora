@@ -274,9 +274,7 @@ function Navbar() {
           {/* ================================================= */}
 
           <div className="hidden items-center gap-2 md:flex">
-            {userLoading ? (
-              <div className="h-10 w-32 animate-pulse rounded-xl bg-black/5" />
-            ) : user ? (
+            {user ? (
               <>
                 {/* CART */}
                 <motion.div
