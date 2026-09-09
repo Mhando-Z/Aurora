@@ -100,11 +100,13 @@ import { logout } from "../(auth)/actions";
 export default function AccountPage() {
   const { fullName, email, phone, roles, loading } = useUser();
 
-  if (loading) {
-    return (
-      <main className="mx-auto max-w-3xl px-6 py-12">Loading account...</main>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <main className="mx-auto justify-center items-center flex flex-col min-h-screen max-w-3xl px-6 py-12">
+  //       Loading account...
+  //     </main>
+  //   );
+  // }
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
