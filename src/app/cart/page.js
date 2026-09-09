@@ -23,11 +23,8 @@ export default async function CartPage() {
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">
           Aurora
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-5xl">
-          Shopping cart
-        </h1>
 
-        <div className="mt-8">
+        <div className="mt-2">
           <CartClient />
         </div>
       </div>

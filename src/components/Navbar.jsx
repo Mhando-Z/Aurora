@@ -261,7 +261,7 @@ function Navbar() {
                   {active && (
                     <motion.span
                       layoutId="desktop-navigation"
-                      className="absolute inset-x-3 -bottom-[11px] h-0.5 rounded-full bg-black"
+                      className="absolute inset-x-3 -bottom-[11px] h-1 rounded-full bg-black"
                     />
                   )}
                 </Link>

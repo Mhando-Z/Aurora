@@ -111,6 +111,7 @@ export default function CartClient() {
 
       <section className="min-w-0 space-y-4">
         <div className="flex items-end justify-between">
+          
           <div>
             <h1 className="text-2xl font-bold tracking-tight">Shopping cart</h1>
 
