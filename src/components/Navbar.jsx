@@ -191,9 +191,13 @@ function Navbar() {
           duration: 0.45,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-xl"
+        className={` ${
+          ["/login", "/register"].includes(pathname)
+            ? "hidden"
+            : "fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-xl"
+        }`}
       >
-        <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-4 md:px-2">
           {/* ================================================= */}
           {/* LOGO */}
           {/* ================================================= */}
@@ -675,7 +679,10 @@ function Navbar() {
       </motion.header>
 
       {/* Prevent fixed navbar covering page content */}
-      <div aria-hidden="true" className="h-[68px]" />
+      <div
+        aria-hidden="true"
+        className={`${["/login", "/register"].includes(pathname) ? "hidden" : "h-[68px]"} `}
+      />
     </>
   );
 }
