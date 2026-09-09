@@ -125,7 +125,7 @@ export async function register(formData) {
  */
 
 export async function signInWithGoogle(formData) {
-  const next = safeRedirect(formData?.get("next"), "/account");
+  const next = safeRedirect(formData?.get("next"), "/");
 
   const supabase = await createClient();
 
@@ -170,8 +170,20 @@ export async function signInWithGoogle(formData) {
 export async function logout() {
   const supabase = await createClient();
 
-  await supabase.auth.signOut();
+  const { error } = await supabase.auth.signOut();
 
+  if (error) {
+    console.error("Logout error:", error);
+
+    redirect(
+      `/?error=${encodeURIComponent("Unable to sign out. Please try again.")}`,
+    );
+  }
+
+  /**
+   * Force server components/layouts using the authentication
+   * state to receive the logged-out state.
+   */
   revalidatePath("/", "layout");
 
   redirect("/");

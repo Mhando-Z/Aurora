@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 
-function safeRedirect(value, fallback = "/account") {
+function safeRedirect(value, fallback = "/") {
   if (
     typeof value !== "string" ||
     !value.startsWith("/") ||
@@ -28,7 +28,7 @@ export async function GET(request) {
 
   const code = requestUrl.searchParams.get("code");
 
-  const next = safeRedirect(requestUrl.searchParams.get("next"), "/account");
+  const next = safeRedirect(requestUrl.searchParams.get("next"), "/");
 
   const oauthError = requestUrl.searchParams.get("error");
 
