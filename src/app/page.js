@@ -12,7 +12,9 @@ const carouselSlides = [
   {
     eyebrow: "New Arrivals",
     title: "Genuine OEM Parts, Fast",
-    subtitle: "Sourced and verified engine parts for all major bike brands.",
+    // subtitle: "Sourced and verified engine parts for all major bike brands.",
+    subtitle:
+      "Shop newly added genuine and verified engine parts, sourced for popular motorcycle brands and selected to deliver reliable performance, durability, and the right fit.",
     cta: "Shop new arrivals",
     image:
       "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Genuine%20OEM%20Parts,%20Fast.png",
@@ -21,7 +23,10 @@ const carouselSlides = [
   {
     eyebrow: "Deal of the Week",
     title: "Up to 30% Off Brake Kits",
-    subtitle: "Limited stock on select brake pad and disc bundles.",
+    // subtitle: "Limited stock on select brake pad and disc bundles.",
+    subtitle:
+      "Save on selected brake pads, discs, and complete braking kits designed to improve stopping performance, safety, and control. Limited quantities available.",
+
     cta: "View offers",
     image:
       "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Up%20to%20Off%20Brake%20Kits.png",
@@ -30,7 +35,10 @@ const carouselSlides = [
   {
     eyebrow: "Trusted Sellers",
     title: "Verified Riders, Verified Parts",
-    subtitle: "Every listing is checked before it goes live.",
+    // subtitle: "Every listing is checked before it goes live.",
+    subtitle:
+      "Buy with greater confidence from verified sellers. Listings are reviewed to improve product accuracy, quality, and transparency before reaching the marketplace.",
+
     cta: "Learn more",
     image:
       "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Verified%20Riders,%20Verified%20Parts.png",
@@ -39,8 +47,11 @@ const carouselSlides = [
   {
     eyebrow: "Built for the Road",
     title: "Upgrade Your Ride with Confidence",
+    // subtitle:
+    //   "Discover quality chains, sprockets, filters, and performance essentials.",
     subtitle:
-      "Discover quality chains, sprockets, filters, and performance essentials.",
+      "Improve reliability and performance with quality chains, sprockets, filters, transmission components, and other essential upgrades built for everyday riding.",
+
     cta: "Explore upgrades",
     image:
       "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Upgrade%20Your%20Ride%20with%20Confidence.png",
@@ -49,7 +60,10 @@ const carouselSlides = [
   {
     eyebrow: "Find the Right Fit",
     title: "Parts That Match Your Motorcycle",
-    subtitle: "Shop compatible parts by bike brand, model, and category.",
+    // subtitle: "Shop compatible parts by bike brand, model, and category.",
+    subtitle:
+      "Find compatible parts faster by selecting your motorcycle brand, model, and category, helping you avoid guesswork and choose components made for your bike.",
+
     cta: "Find my parts",
     image:
       "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Parts%20That%20Match%20Your%20Motorcycle.png",

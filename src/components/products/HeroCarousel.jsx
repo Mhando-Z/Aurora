@@ -92,7 +92,7 @@ export default function HeroCarousel({ slides = [] }) {
                       {slide.title}
                     </h2>
                     {slide.subtitle && (
-                      <p className="line-clamp-2 text-sm text-black/60 sm:text-base">
+                      <p className="line-clamp-3 text-sm text-black/60 sm:text-base">
                         {slide.subtitle}
                       </p>
                     )}
