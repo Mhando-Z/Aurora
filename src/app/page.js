@@ -50,7 +50,8 @@ const carouselSlides = [
     title: "Parts That Match Your Motorcycle",
     subtitle: "Shop compatible parts by bike brand, model, and category.",
     cta: "Find my parts",
-    image: "/carousel/motorcycle-fitment.webp",
+    image:
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide5.png",
     href: "/products",
   },
 ];
