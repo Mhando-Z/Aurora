@@ -171,19 +171,21 @@ export default function CheckEmail({ email }) {
           />
 
           <motion.div
-            initial={{
-              scale: 0.6,
-              opacity: 0,
-            }}
+            initial={{ scale: 0.6, opacity: 0 }}
             animate={{
               scale: 1,
               opacity: 1,
+              x: [0, -6, 6, -4, 4, 0],
             }}
             transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 18,
-              delay: 0.2,
+              scale: {
+                type: "spring",
+                stiffness: 260,
+                damping: 18,
+                delay: 0.2,
+              },
+              opacity: { duration: 0.3, delay: 0.2 },
+              x: { duration: 0.5, delay: 1.2, ease: "easeInOut" },
             }}
             className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/10 bg-black"
           >

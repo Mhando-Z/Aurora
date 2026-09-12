@@ -526,7 +526,6 @@ export default function RegisterForm({
               name="fullName"
               type="text"
               required
-              autoFocus
               autoComplete="name"
               placeholder="Jane Doe"
               value={fullName}

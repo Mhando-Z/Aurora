@@ -25,7 +25,8 @@ export default async function OrdersPage() {
 
   const { data: orders, error } = await supabase
     .from("orders")
-    .select(`
+    .select(
+      `
       id,
       order_number,
       status,
@@ -39,16 +40,15 @@ export default async function OrdersPage() {
         product_title,
         quantity
       )
-    `)
+    `,
+    )
     .eq("customer_id", user.id)
     .order("placed_at", { ascending: false });
 
   return (
-    <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
-      <div className="mx-auto max-w-5xl">
-        <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
-          My orders
-        </h1>
+    <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">
+      <div className="mx-auto container flex flex-col">
+        <h1 className="text-xl font-bold tracking-tight">My orders</h1>
 
         {error ? (
           <p className="mt-8 text-red-600">{error.message}</p>

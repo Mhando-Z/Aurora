@@ -168,7 +168,7 @@ export default function LoginClient({ error, next }) {
 
               <div className="min-w-0">
                 <p className="font-medium">Unable to sign in</p>
-                <p className="mt-0.5 break-words text-red-700">{error}</p>
+                <p className="mt-0.5 wrap-break-words text-red-700">{error}</p>
               </div>
             </div>
           )}
@@ -200,7 +200,6 @@ export default function LoginClient({ error, next }) {
                   name="email"
                   type="email"
                   required
-                  autoFocus
                   autoComplete="email"
                   inputMode="email"
                   placeholder="you@example.com"

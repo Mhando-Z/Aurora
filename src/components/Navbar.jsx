@@ -47,7 +47,7 @@ const NAVIGATION = [
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "/contactus",
     icon: Mail,
     protected: false,
   },
@@ -192,7 +192,7 @@ function Navbar() {
           ease: [0.16, 1, 0.3, 1],
         }}
         className={` ${
-          ["/login", "/register"].includes(pathname)
+          ["/login", "/register", "/checkemail", "/error"].includes(pathname)
             ? "hidden"
             : "fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-xl"
         }`}
@@ -681,7 +681,7 @@ function Navbar() {
       {/* Prevent fixed navbar covering page content */}
       <div
         aria-hidden="true"
-        className={`${["/login", "/register"].includes(pathname) ? "hidden" : "h-[68px]"} `}
+        className={`${["/login", "/register", "/checkemail", "/error"].includes(pathname) ? "hidden" : "h-[68px]"} `}
       />
     </>
   );
