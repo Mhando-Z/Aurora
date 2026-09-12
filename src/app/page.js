@@ -26,7 +26,6 @@ const carouselSlides = [
     // subtitle: "Limited stock on select brake pad and disc bundles.",
     subtitle:
       "Save on selected brake pads, discs, and complete braking kits designed to improve stopping performance, safety, and control. Limited quantities available.",
-
     cta: "View offers",
     image:
       "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Up%20to%20Off%20Brake%20Kits.png",
