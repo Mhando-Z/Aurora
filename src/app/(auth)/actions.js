@@ -52,6 +52,8 @@ export async function login(formData) {
 
   revalidatePath("/", "layout");
 
+  // redirect(`/loading?next=${encodeURIComponent(next)}`);
+
   redirect(next);
 }
 
@@ -185,6 +187,8 @@ export async function logout() {
    * state to receive the logged-out state.
    */
   revalidatePath("/", "layout");
+
+  // redirect("/loading?next=/");
 
   redirect("/");
 }

@@ -80,7 +80,7 @@ export default async function ProductsPage() {
     .limit(48);
 
   return (
-    <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
+    <main className="min-h-screen bg-black/2.5 px-4 py-10 md:py-5 md:px-8">
       <div className="mx-auto max-w-7xl">
         <HeroCarousel slides={carouselSlides} />
 
