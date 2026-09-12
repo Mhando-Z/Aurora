@@ -14,7 +14,8 @@ const carouselSlides = [
     title: "Genuine OEM Parts, Fast",
     subtitle: "Sourced and verified engine parts for all major bike brands.",
     cta: "Shop new arrivals",
-    image: "/carousel/oem-engine-parts.webp",
+    image:
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide1.png",
     href: "/products?condition=new",
   },
   {
@@ -22,7 +23,8 @@ const carouselSlides = [
     title: "Up to 30% Off Brake Kits",
     subtitle: "Limited stock on select brake pad and disc bundles.",
     cta: "View offers",
-    image: "/carousel/brake-kits-offer.webp",
+    image:
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide2.png",
     href: "/products?category=brakes",
   },
   {
@@ -39,7 +41,8 @@ const carouselSlides = [
     subtitle:
       "Discover quality chains, sprockets, filters, and performance essentials.",
     cta: "Explore upgrades",
-    image: "/carousel/performance-upgrades.webp",
+    image:
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide3.png",
     href: "/products?category=performance",
   },
   {

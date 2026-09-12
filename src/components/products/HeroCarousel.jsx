@@ -105,7 +105,7 @@ export default function HeroCarousel({ slides = [] }) {
                         src={slide?.image}
                         alt={slide.title || ""}
                         draggable={false}
-                        className="object-conver"
+                        className="object-conver w-full h-full"
                       />
                     )}
                   </div>
