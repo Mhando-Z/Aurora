@@ -15,7 +15,7 @@ const carouselSlides = [
     subtitle: "Sourced and verified engine parts for all major bike brands.",
     cta: "Shop new arrivals",
     image:
-      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide1.png",
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Genuine%20OEM%20Parts,%20Fast.png",
     href: "/products?condition=new",
   },
   {
@@ -24,7 +24,7 @@ const carouselSlides = [
     subtitle: "Limited stock on select brake pad and disc bundles.",
     cta: "View offers",
     image:
-      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide2.png",
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Up%20to%20Off%20Brake%20Kits.png",
     href: "/products?category=brakes",
   },
   {
@@ -32,7 +32,8 @@ const carouselSlides = [
     title: "Verified Riders, Verified Parts",
     subtitle: "Every listing is checked before it goes live.",
     cta: "Learn more",
-    image: "/carousel/verified-sellers.webp",
+    image:
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Verified%20Riders,%20Verified%20Parts.png",
     href: "/about",
   },
   {
@@ -42,7 +43,7 @@ const carouselSlides = [
       "Discover quality chains, sprockets, filters, and performance essentials.",
     cta: "Explore upgrades",
     image:
-      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide3.png",
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Upgrade%20Your%20Ride%20with%20Confidence.png",
     href: "/products?category=performance",
   },
   {
@@ -51,7 +52,7 @@ const carouselSlides = [
     subtitle: "Shop compatible parts by bike brand, model, and category.",
     cta: "Find my parts",
     image:
-      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/slide5.png",
+      "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/images/Parts%20That%20Match%20Your%20Motorcycle.png",
     href: "/products",
   },
 ];
