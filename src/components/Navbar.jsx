@@ -7,10 +7,13 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { AnimatePresence, motion } from "framer-motion";
+
 import {
   ChevronDown,
   Home,
@@ -26,7 +29,7 @@ import {
 } from "lucide-react";
 
 import Auroralogo from "../../public/Auroraicon.png";
-import { useUser } from "@/context/UserContext";
+
 import { logout } from "@/app/(auth)/actions";
 import { useData } from "@/context/DataContext";
 
@@ -53,27 +56,43 @@ const NAVIGATION = [
   },
 ];
 
-function Navbar() {
+function Navbar({ user, profile, roles = [] }) {
   const pathname = usePathname();
-
-  const {
-    user,
-    fullName,
-    refreshUser,
-    email,
-    avatarUrl,
-    loading: userLoading,
-  } = useUser();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
+
   const { cartCount } = useData();
 
   const profileRef = useRef(null);
   const profileButtonRef = useRef(null);
   const profileMenuRef = useRef(null);
   const mobileToggleRef = useRef(null);
+
+  // ---------------------------------------------------------
+  // USER DATA
+  // ---------------------------------------------------------
+
+  const isAuthenticated = Boolean(user);
+
+  const fullName =
+    profile?.full_name ??
+    user?.user_metadata?.full_name ??
+    user?.user_metadata?.name ??
+    null;
+
+  const avatarUrl =
+    profile?.avatar_url ??
+    user?.user_metadata?.avatar_url ??
+    user?.user_metadata?.picture ??
+    null;
+
+  // Email belongs to the Supabase auth user
+  const email = user?.email ?? null;
+
+  const isSeller = roles.includes("seller");
+  const isAdmin = roles.includes("admin");
 
   // ---------------------------------------------------------
   // CLOSE MENUS WHEN ROUTE CHANGES
@@ -476,7 +495,7 @@ function Navbar() {
           {/* ================================================= */}
 
           <div className="flex items-center gap-2 md:hidden">
-            {!userLoading && user && (
+            {!user && (
               <Link
                 href="/cart"
                 className="relative flex h-10 w-10 items-center justify-center rounded-xl text-black/70 transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
@@ -549,8 +568,7 @@ function Navbar() {
             >
               <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
                 {/* USER PROFILE */}
-
-                {!userLoading && user && (
+                {user && (
                   <div className="mb-4 flex items-center gap-3 rounded-2xl bg-black/[0.03] p-3">
                     {avatarUrl && !avatarError ? (
                       <img
@@ -646,39 +664,37 @@ function Navbar() {
 
                 {/* MOBILE AUTH */}
 
-                {!userLoading && (
-                  <div className="mt-4 border-t border-black/5 pt-4">
-                    {user ? (
-                      <form action={logout}>
-                        <button
-                          type="submit"
-                          className="flex w-full items-center justify-center gap-2 rounded-xl border border-black/10 px-4 py-3 text-sm font-semibold text-black transition hover:bg-black/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
-                        >
-                          <LogOut className="h-4 w-4" />
-                          Logout
-                        </button>
-                      </form>
-                    ) : (
-                      <div className="grid grid-cols-2 gap-2">
-                        <Link
-                          href="/login"
-                          className="flex items-center justify-center gap-2 rounded-xl border border-black/10 px-4 py-3 text-sm font-semibold text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
-                        >
-                          <LogIn className="h-4 w-4" />
-                          Login
-                        </Link>
+                <div className="mt-4 border-t border-black/5 pt-4">
+                  {user ? (
+                    <form action={logout}>
+                      <button
+                        type="submit"
+                        className="flex w-full items-center justify-center gap-2 rounded-xl border border-black/10 px-4 py-3 text-sm font-semibold text-black transition hover:bg-black/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        Logout
+                      </button>
+                    </form>
+                  ) : (
+                    <div className="grid grid-cols-2 gap-2">
+                      <Link
+                        href="/login"
+                        className="flex items-center justify-center gap-2 rounded-xl border border-black/10 px-4 py-3 text-sm font-semibold text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
+                      >
+                        <LogIn className="h-4 w-4" />
+                        Login
+                      </Link>
 
-                        <Link
-                          href="/register"
-                          className="flex items-center justify-center gap-2 rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2"
-                        >
-                          <UserPlus className="h-4 w-4" />
-                          Register
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                )}
+                      <Link
+                        href="/register"
+                        className="flex items-center justify-center gap-2 rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2"
+                      >
+                        <UserPlus className="h-4 w-4" />
+                        Register
+                      </Link>
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
           )}
