@@ -4,6 +4,8 @@ import RegisterForm from "./RegisterForm";
 import Image from "next/image";
 import Auroralogo from "../../../../public/Aurora.png";
 import { ArrowLeft } from "lucide-react";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 
 const metadata = {
   title: "Register - Aurora",
@@ -26,6 +28,14 @@ export default async function RegisterPage({ searchParams }) {
   const params = await searchParams;
   const next = safeNext(params?.next);
   const error = params?.error;
+
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) redirect("/");
 
   return (
     <main className="flex relative min-h-screen items-center justify-center bg-gray-50 px-6">

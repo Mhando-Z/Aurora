@@ -330,7 +330,7 @@ export default async function ProductDetailPage({ params }) {
                 {fitments.map((fitment) => (
                   <span
                     key={fitment.model?.id}
-                    className="rounded-full border border-black/10 bg-black/[0.03] px-3 py-2 text-sm"
+                    className="rounded-full border border-black/10 bg-black/3 px-3 py-2 text-sm"
                   >
                     {fitment.model?.brand?.name} {fitment.model?.name}
                     {fitment.model?.engine_label
@@ -340,7 +340,7 @@ export default async function ProductDetailPage({ params }) {
                 ))}
               </div>
               <p className="mt-3 flex items-start gap-1.5 text-xs leading-5 text-black/45">
-                <Info className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" />
+                <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                 Confirm OEM number and physical fitment before purchase.
                 Seller-declared fitment is not automatically
                 manufacturer-verified.

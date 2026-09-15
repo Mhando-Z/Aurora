@@ -1,4 +1,6 @@
+import { createClient } from "@/lib/supabase/server";
 import LoginClient from "./LoginClient";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Login - Aurora",
@@ -19,6 +21,13 @@ function safeNext(value) {
 
 export default async function LoginPage({ searchParams }) {
   const params = await searchParams;
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) redirect("/");
 
   const error = params?.error;
   const next = safeNext(params?.next);
