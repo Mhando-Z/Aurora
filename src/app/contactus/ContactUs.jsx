@@ -324,12 +324,7 @@ export default function ContactUs() {
               type="submit"
               whileHover={{ x: 2 }}
               whileTap={{ scale: 0.98 }}
-              className="mt-1 inline-flex w-fit items-center gap-2 px-6 py-3 text-sm"
-              style={{
-                backgroundColor: "#E85D2D",
-                color: "#17181A",
-                fontWeight: 500,
-              }}
+              className="mt-1 bg-black text-white cursor-pointer rounded-lg inline-flex w-fit items-center gap-2 px-6 py-3 text-sm"
             >
               Send message
               <Send size={16} />
