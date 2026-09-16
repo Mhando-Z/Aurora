@@ -237,7 +237,7 @@ export default function ContactUs() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto mt-16 max-w-6xl border-t pt-14"
+        className="relative mx-auto mt-16 max-w-7xl px-6 border-t pt-14"
         style={{ borderColor: "#2E3134" }}
       >
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
