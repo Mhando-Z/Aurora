@@ -2,7 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, ArrowUpRight, Send, Loader2 } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ArrowUpRight,
+  Send,
+  Loader2,
+  Info,
+} from "lucide-react";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
@@ -74,10 +82,10 @@ export default function ContactUs() {
       const now = new Date();
 
       const templateParams = {
-        name: form.current.name.value,
-        email: form.current.email.value,
-        phone: form.current.phone.value,
-        message: form.current.message.value,
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
         time: now.toLocaleString(),
       };
 
@@ -91,7 +99,12 @@ export default function ContactUs() {
       );
 
       setStatus("Message sent successfully!");
-      form.current.reset();
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
     } catch (error) {
       console.error("EmailJS error:", error);
       setStatus("Failed to send message. Please try again.");
@@ -373,11 +386,14 @@ export default function ContactUs() {
               )}
             </motion.button>
 
-            {true && (
-              <p className="text-sm bg-green-400 px-2 py-3 rounded-lg">
-                Opening your email app now, send it and we'll reply as soon as
-                we can.
-              </p>
+            {status && (
+              <div className="flex text-sm  bg-green-400  rounded-lg px-4 py-3 items-center gap-2">
+                <Info size={15} />
+
+                <p className=" ">
+                  {status}. You will receive a reply as soon as possible.
+                </p>
+              </div>
             )}
           </form>
         </div>
