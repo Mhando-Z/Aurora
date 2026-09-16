@@ -27,7 +27,7 @@ const CONTACTS = [
   {
     label: "Facebook",
     value: "Auroraspareparts",
-    href: "https://facebook.com/Auroraspareparts",
+    href: "https://www.facebook.com/share/19Yc1e3Bp5/",
     icon: FaFacebookF,
   },
 ];
