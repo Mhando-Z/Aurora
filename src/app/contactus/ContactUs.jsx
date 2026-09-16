@@ -212,21 +212,13 @@ export default function ContactUs() {
                 style={{ backgroundColor: "#E85D2D" }}
               />
 
-              <div className="flex h-12 w-12 flex-none items-center justify-center border transition-colors duration-200 group-hover:border-[#E85D2D]">
-                <Icon size={18} color="#F2F0EC" />
+              <div className="flex text-black h-12 w-12 flex-none border-black rounded-lg items-center justify-center border transition-colors duration-200 group-hover:border-black">
+                <Icon size={18} />
               </div>
 
               <div className="flex flex-1 flex-col pl-2 sm:flex-row sm:items-baseline sm:justify-between">
                 <span className="text-sm">{label}</span>
-                <span
-                  className="mt-1 text-base sm:mt-0"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontVariantNumeric: "tabular-nums",
-                  }}
-                >
-                  {value}
-                </span>
+                <span className="mt-1 text-base sm:mt-0">{value}</span>
               </div>
 
               <ArrowUpRight
