@@ -1,9 +1,10 @@
 import React from "react";
+import ContactUs from "./ContactUs";
 
 function page() {
   return (
     <div>
-      <h1>Contact US</h1>
+      <ContactUs />
     </div>
   );
 }
