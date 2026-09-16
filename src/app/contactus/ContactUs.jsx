@@ -132,17 +132,14 @@ export default function ContactUs() {
             you need.
           </h2>
 
-          <p
-            className="mt-5 max-w-sm text-base leading-relaxed"
-            style={{ color: "#B7B9BA" }}
-          >
+          <p className="mt-5 max-w-sm text-base leading-relaxed">
             Reach out by phone, WhatsApp, or social media, or come see us in
             person at our shop in Kibaha.
           </p>
 
           {/* Location card */}
           <div
-            className="mt-10 border p-6"
+            className="mt-10 rounded-lg border p-6"
             style={{ borderColor: "#2E3134", backgroundColor: "#1F2124" }}
           >
             <div className="flex items-start gap-4">
