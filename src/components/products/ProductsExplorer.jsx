@@ -218,9 +218,13 @@ export default function ProductsExplorer({ products }) {
         )}
       </AnimatePresence>
 
-      <p className="mb-4 text-xs text-black/45">
-        {filtered.length} {filtered.length === 1 ? "result" : "results"}
-      </p>
+      <motion.p
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="mb-4 text-xs text-black/45"
+      >
+        {filtered.length} {filtered.length === 1 ? "Product" : "Products"}
+      </motion.p>
 
       {/* Grid */}
       {filtered.length ? (
