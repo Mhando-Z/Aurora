@@ -146,10 +146,10 @@ export default function ContactUs() {
             style={{ borderColor: "#2E3134", backgroundColor: "#1F2124" }}
           >
             <div className="flex items-start gap-4">
-              <div className="flex h-11 w-11 flex-none items-center justify-center border">
-                <MapPin size={20} color="#E85D2D" strokeWidth={1.75} />
+              <div className="flex h-11 text-white rounded-lg w-11 flex-none items-center justify-center border">
+                <MapPin size={20} strokeWidth={1.75} />
               </div>
-              <div>
+              <div className="text-white">
                 <p className="text-sm">Visit the shop</p>
                 <p
                   className="mt-1 text-lg"
@@ -180,8 +180,7 @@ export default function ContactUs() {
               rel="noopener noreferrer"
               whileHover={{ x: 2 }}
               whileTap={{ scale: 0.98 }}
-              className="mt-4 inline-flex items-center gap-2 border px-4 py-2.5 text-sm"
-              style={{ borderColor: "#E85D2D", color: "#F2F0EC" }}
+              className="mt-4 inline-flex rounded-lg text-white items-center gap-2 border px-4 py-2.5 text-sm"
             >
               Get directions
               <ArrowUpRight size={16} />
