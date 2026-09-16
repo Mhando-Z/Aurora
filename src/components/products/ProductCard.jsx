@@ -38,9 +38,9 @@ export default function ProductCard({ product, priority = false }) {
     >
       <Link
         href={`/products/${product.id}`}
-        className="group block overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm transition hover:shadow-md"
+        className="group block overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:shadow-md"
       >
-        <div className="relative aspect-square bg-black/[0.04]">
+        <div className="relative aspect-square bg-black/4">
           {image ? (
             <Image
               src={image.image_url}
@@ -67,7 +67,16 @@ export default function ProductCard({ product, priority = false }) {
         </div>
 
         <div className="p-4">
-          <div className="flex items-start justify-between gap-3">
+          {/* mobile view */}
+          <div className=" md:hidden  gap-3">
+            <span className="flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-medium uppercase text-black/50">
+              <Tag className="h-3 w-3" />
+              {product.condition}
+            </span>
+            <h3 className="line-clamp-3 font-semibold">{product.title}</h3>
+          </div>
+          {/* desktop view */}
+          <div className="md:flex hidden items-start justify-between gap-3">
             <h3 className="line-clamp-2 font-semibold">{product.title}</h3>
             <span className="flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-medium uppercase text-black/50">
               <Tag className="h-3 w-3" />
