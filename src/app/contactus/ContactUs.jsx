@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, ArrowUpRight, Send } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight, Send, Loader2 } from "lucide-react";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const CONTACTS = [
   {
@@ -54,21 +55,53 @@ const rowVariants = {
 };
 
 export default function ContactUs() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
+
+  async function sendEmail(event) {
+    event.preventDefault();
+
+    setSending(true);
+    setStatus("");
+
+    try {
+      const now = new Date();
+
+      const templateParams = {
+        name: form.current.name.value,
+        email: form.current.email.value,
+        phone: form.current.phone.value,
+        message: form.current.message.value,
+        time: now.toLocaleString(),
+      };
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        },
+      );
+
+      setStatus("Message sent successfully!");
+      form.current.reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  }
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const subject = `Spare part enquiry from ${form.name || "website visitor"}`;
-    const body = `${form.message}\n\n— ${form.name}${form.email ? ` (${form.email})` : ""}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
   };
 
   useEffect(() => {
@@ -251,7 +284,7 @@ export default function ContactUs() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <form onSubmit={sendEmail} className="flex flex-col gap-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm">
@@ -266,7 +299,7 @@ export default function ContactUs() {
                   onChange={handleChange}
                   placeholder="Your name"
                   className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D] rounded-lg"
-                  style={{ borderColor: "#3A3D40", color: "#F2F0EC" }}
+                  style={{ borderColor: "#3A3D40" }}
                 />
               </div>
 
@@ -283,7 +316,23 @@ export default function ContactUs() {
                   onChange={handleChange}
                   placeholder="you@example.com"
                   className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D] rounded-lg"
-                  style={{ borderColor: "#3A3D40", color: "#F2F0EC" }}
+                  style={{ borderColor: "#3A3D40" }}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="phone" className="text-sm">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="text"
+                  required
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="+255.."
+                  className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D] rounded-lg"
+                  style={{ borderColor: "#3A3D40" }}
                 />
               </div>
             </div>
@@ -301,7 +350,7 @@ export default function ContactUs() {
                 onChange={handleChange}
                 placeholder="e.g. Do you have brake pads for a Toyota Hilux 2015?"
                 className="resize-none rounded-lg border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D]"
-                style={{ borderColor: "#3A3D40", color: "#F2F0EC" }}
+                style={{ borderColor: "#3A3D40" }}
               />
             </div>
 
@@ -311,13 +360,22 @@ export default function ContactUs() {
               whileTap={{ scale: 0.98 }}
               className="mt-1 bg-black text-white cursor-pointer rounded-lg inline-flex w-fit items-center gap-2 px-6 py-3 text-sm"
             >
-              Send message
-              <Send size={16} />
+              {sending ? (
+                <div className="flex items-center gap-2">
+                  <Loader2 />
+                  <p>Sending..</p>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  Send message
+                  <Send size={16} />
+                </div>
+              )}
             </motion.button>
 
-            {sent && (
-              <p className="text-sm">
-                Opening your email app now — send it and we'll reply as soon as
+            {true && (
+              <p className="text-sm bg-green-400 px-2 py-3 rounded-lg">
+                Opening your email app now, send it and we'll reply as soon as
                 we can.
               </p>
             )}

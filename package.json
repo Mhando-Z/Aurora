@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^6.12.0",
     "@supabase/ssr": "^0.12.6",
