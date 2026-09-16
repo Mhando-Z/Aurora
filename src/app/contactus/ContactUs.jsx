@@ -375,8 +375,8 @@ export default function ContactUs() {
             >
               {sending ? (
                 <div className="flex items-center gap-2">
-                  <Loader2 />
-                  <p>Sending..</p>
+                  <Loader2 className="animate-spin h-4 w-4" />
+                  <p>Sending...</p>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
