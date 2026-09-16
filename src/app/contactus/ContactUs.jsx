@@ -82,10 +82,7 @@ export default function ContactUs() {
   }, []);
 
   return (
-    <section
-      className="relative overflow-hidden px-6 py-24 md:px-12 lg:px-20"
-      style={{ backgroundColor: "#17181A", color: "#F2F0EC" }}
-    >
+    <section className="relative overflow-hidden py-20">
       {/* faint mechanical mark, purely decorative */}
       <svg
         aria-hidden="true"
@@ -119,7 +116,7 @@ export default function ContactUs() {
         />
       </svg>
 
-      <div className="relative mx-auto grid max-w-6xl gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+      <div className="relative mx-auto grid max-w-7xl px-6 gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
         {/* Left: brand statement + location */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
