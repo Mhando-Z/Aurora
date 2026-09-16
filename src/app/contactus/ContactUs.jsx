@@ -405,10 +405,7 @@ export default function ContactUs() {
               <div className="flex text-sm  bg-red-400  rounded-lg px-4 py-3 items-center gap-2">
                 <Info size={15} />
 
-                <p className="">
-                  {status?.message}. You will receive a reply as soon as
-                  possible.
-                </p>
+                <p className="">{status?.message}.</p>
               </div>
             ) : (
               <></>
