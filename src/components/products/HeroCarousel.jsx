@@ -39,7 +39,11 @@ export default function HeroCarousel({ slides = [] }) {
   const slide = slides[index];
 
   return (
-    <div className="mx-auto mb-5 ">
+    <motion.div
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className="mx-auto mb-5 "
+    >
       <div
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
@@ -163,6 +167,6 @@ export default function HeroCarousel({ slides = [] }) {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
