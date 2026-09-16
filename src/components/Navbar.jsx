@@ -40,18 +40,21 @@ const NAVIGATION = [
     name: "Home",
     href: "/",
     icon: Home,
+    icon2: Home,
     protected: false,
   },
   {
     name: "Orders",
     href: "/orders",
     icon: Package,
+    icon2: Package,
     protected: true,
   },
   {
     name: "Contact",
     href: "/contactus",
     icon: Mail,
+    icon2: Mail,
     protected: false,
   },
 ];
