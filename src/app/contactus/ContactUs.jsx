@@ -257,12 +257,9 @@ export default function ContactUs() {
             <h3 className="text-2xl sm:text-3xl" style={{ fontWeight: 600 }}>
               Send us a message
             </h3>
-            <p
-              className="mt-3 max-w-sm text-base leading-relaxed"
-              style={{ color: "#B7B9BA" }}
-            >
+            <p className="mt-3 max-w-sm text-base leading-relaxed">
               Tell us which part you're looking for, your vehicle model, or any
-              question — it goes straight to our inbox.
+              question, it goes straight to our inbox.
             </p>
           </div>
 
