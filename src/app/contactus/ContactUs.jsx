@@ -69,14 +69,17 @@ export default function ContactUs() {
     phone: "",
     message: "",
   });
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState({
+    status: "",
+    message: "",
+  });
   const [sending, setSending] = useState(false);
 
   async function sendEmail(event) {
     event.preventDefault();
 
     setSending(true);
-    setStatus("");
+    setStatus({ status: "", message: "" });
 
     try {
       const now = new Date();
@@ -98,7 +101,7 @@ export default function ContactUs() {
         },
       );
 
-      setStatus("Message sent successfully!");
+      setStatus({ status: "success", message: "Message sent successfully!" });
       setForm({
         name: "",
         email: "",
@@ -107,7 +110,10 @@ export default function ContactUs() {
       });
     } catch (error) {
       console.error("EmailJS error:", error);
-      setStatus("Failed to send message. Please try again.");
+      setStatus({
+        status: "error",
+        message: "Failed to send message. Please try again.",
+      });
     } finally {
       setSending(false);
     }
@@ -386,14 +392,26 @@ export default function ContactUs() {
               )}
             </motion.button>
 
-            {status && (
+            {status.status === "success" ? (
               <div className="flex text-sm  bg-green-400  rounded-lg px-4 py-3 items-center gap-2">
                 <Info size={15} />
 
-                <p className=" ">
-                  {status}. You will receive a reply as soon as possible.
+                <p className="">
+                  {status?.message}. You will receive a reply as soon as
+                  possible.
                 </p>
               </div>
+            ) : status.status === "error" ? (
+              <div className="flex text-sm  bg-red-400  rounded-lg px-4 py-3 items-center gap-2">
+                <Info size={15} />
+
+                <p className="">
+                  {status?.message}. You will receive a reply as soon as
+                  possible.
+                </p>
+              </div>
+            ) : (
+              <></>
             )}
           </form>
         </div>
