@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import ProductsExplorer from "@/components/products/ProductsExplorer";
 import HeroCarousel from "@/components/products/HeroCarousel";
+import { motion } from "framer-motion";
 
 export const metadata = {
   title: "Motorcycle Spare Parts",
@@ -101,10 +102,6 @@ export default async function ProductsPage() {
     <main className="min-h-screen bg-black/2.5 px-4 py-10 md:py-5 md:px-8">
       <div className="mx-auto max-w-7xl">
         <HeroCarousel slides={carouselSlides} />
-
-        <h1 className="mb-6 px-1 text-lg font-bold tracking-tight md:text-xl">
-          Motorcycle Spare Parts
-        </h1>
 
         {error ? (
           <div className="rounded-2xl border border-black/10 bg-white p-6">

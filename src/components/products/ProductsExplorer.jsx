@@ -83,8 +83,20 @@ export default function ProductsExplorer({ products }) {
 
   return (
     <div>
+      <motion.h1
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-6 px-1 text-lg font-bold tracking-tight md:text-xl"
+      >
+        Motorcycle Spare Parts
+      </motion.h1>
+
       {/* Search + controls bar */}
-      <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center">
+      <motion.div
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-6 flex flex-col gap-3 md:flex-row md:items-center"
+      >
         <div className="relative flex-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-black/40" />
           <input
@@ -139,7 +151,7 @@ export default function ProductsExplorer({ products }) {
             </button>
           )}
         </div>
-      </div>
+      </motion.div>
 
       {/* Expandable filter panel */}
       <AnimatePresence initial={false}>
