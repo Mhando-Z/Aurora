@@ -124,18 +124,9 @@ export default function ContactUs() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-sm tracking-wide" style={{ color: "#9A9D9F" }}>
-            Contact
-          </p>
+          <p className="text-sm tracking-wide">Contact</p>
 
-          <h2
-            className="mt-3 text-4xl leading-[1.05] sm:text-5xl"
-            style={{
-              fontFamily: "'Oswald', sans-serif",
-              fontWeight: 600,
-              letterSpacing: "-0.01em",
-            }}
-          >
+          <h2 className="mt-3 text-4xl leading-[1.05] sm:text-5xl">
             Let&apos;s find the part
             <br />
             you need.
@@ -155,20 +146,14 @@ export default function ContactUs() {
             style={{ borderColor: "#2E3134", backgroundColor: "#1F2124" }}
           >
             <div className="flex items-start gap-4">
-              <div
-                className="flex h-11 w-11 flex-none items-center justify-center border"
-                style={{ borderColor: "#3A3D40" }}
-              >
+              <div className="flex h-11 w-11 flex-none items-center justify-center border">
                 <MapPin size={20} color="#E85D2D" strokeWidth={1.75} />
               </div>
               <div>
-                <p className="text-sm" style={{ color: "#9A9D9F" }}>
-                  Visit the shop
-                </p>
+                <p className="text-sm">Visit the shop</p>
                 <p
                   className="mt-1 text-lg"
                   style={{
-                    fontFamily: "'Oswald', sans-serif",
                     fontWeight: 500,
                   }}
                 >
@@ -177,10 +162,7 @@ export default function ContactUs() {
               </div>
             </div>
 
-            <div
-              className="mt-5 h-48 w-full overflow-hidden border"
-              style={{ borderColor: "#3A3D40" }}
-            >
+            <div className="mt-5 h-48 w-full overflow-hidden border">
               <iframe
                 title="Aurora Spare Parts location"
                 src={MAP_EMBED_SRC}
@@ -234,17 +216,12 @@ export default function ContactUs() {
                 style={{ backgroundColor: "#E85D2D" }}
               />
 
-              <div
-                className="flex h-12 w-12 flex-none items-center justify-center border transition-colors duration-200 group-hover:border-[#E85D2D]"
-                style={{ borderColor: "#3A3D40" }}
-              >
+              <div className="flex h-12 w-12 flex-none items-center justify-center border transition-colors duration-200 group-hover:border-[#E85D2D]">
                 <Icon size={18} color="#F2F0EC" />
               </div>
 
               <div className="flex flex-1 flex-col pl-2 sm:flex-row sm:items-baseline sm:justify-between">
-                <span className="text-sm" style={{ color: "#9A9D9F" }}>
-                  {label}
-                </span>
+                <span className="text-sm">{label}</span>
                 <span
                   className="mt-1 text-base sm:mt-0"
                   style={{
@@ -277,10 +254,7 @@ export default function ContactUs() {
       >
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
           <div>
-            <h3
-              className="text-2xl sm:text-3xl"
-              style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 600 }}
-            >
+            <h3 className="text-2xl sm:text-3xl" style={{ fontWeight: 600 }}>
               Send us a message
             </h3>
             <p
@@ -295,11 +269,7 @@ export default function ContactUs() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="name"
-                  className="text-sm"
-                  style={{ color: "#9A9D9F" }}
-                >
+                <label htmlFor="name" className="text-sm">
                   Name
                 </label>
                 <input
@@ -316,11 +286,7 @@ export default function ContactUs() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="email"
-                  className="text-sm"
-                  style={{ color: "#9A9D9F" }}
-                >
+                <label htmlFor="email" className="text-sm">
                   Your email
                 </label>
                 <input
@@ -338,11 +304,7 @@ export default function ContactUs() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label
-                htmlFor="message"
-                className="text-sm"
-                style={{ color: "#9A9D9F" }}
-              >
+              <label htmlFor="message" className="text-sm">
                 Message
               </label>
               <textarea
@@ -374,7 +336,7 @@ export default function ContactUs() {
             </motion.button>
 
             {sent && (
-              <p className="text-sm" style={{ color: "#9A9D9F" }}>
+              <p className="text-sm">
                 Opening your email app now — send it and we'll reply as soon as
                 we can.
               </p>
