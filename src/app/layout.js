@@ -66,16 +66,6 @@ import { DataProvider } from "@/context/DataContext";
 
 import { getCurrentUserData } from "@/lib/auth/getCurrentUserData";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata = {
   title: "Aurora Spare Parts",
 
@@ -97,19 +87,10 @@ export default async function RootLayout({ children }) {
   const { user, profile, roles } = userData;
 
   return (
-    <html
-      lang="en"
-      className={`
-        ${geistSans.variable}
-        ${geistMono.variable}
-        h-full
-        antialiased
-      `}
-    >
+    <html lang="en" className={`h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {/*
           Watches browser authentication changes.
-
           When login/logout happens it causes
           RootLayout to run again on the server.
         */}

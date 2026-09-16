@@ -14,6 +14,13 @@ import { usePathname } from "next/navigation";
 
 import { AnimatePresence, motion } from "framer-motion";
 
+// second icons
+import { IoHomeOutline } from "react-icons/io5";
+import { FaHome } from "react-icons/fa";
+//
+import { TbMailFilled } from "react-icons/tb";
+import { IoMdCube } from "react-icons/io";
+
 import {
   ChevronDown,
   Home,

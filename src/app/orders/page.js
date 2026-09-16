@@ -46,8 +46,8 @@ export default async function OrdersPage() {
     .order("placed_at", { ascending: false });
 
   return (
-    <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">
-      <div className="mx-auto container flex flex-col">
+    <main className="min-h-screen bg-black/2.5 py-10 md:px-8">
+      <div className="flex flex-col container mx-auto max-w-7xl px-6">
         <h1 className="text-xl font-bold tracking-tight">My orders</h1>
 
         {error ? (
