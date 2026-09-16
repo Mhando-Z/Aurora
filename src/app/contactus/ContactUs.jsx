@@ -126,7 +126,7 @@ export default function ContactUs() {
         >
           <p className="text-sm tracking-wide">Contact</p>
 
-          <h2 className="mt-3 text-4xl leading-[1.05] sm:text-5xl">
+          <h2 className="mt-3 text-4xl leading-[1.05]">
             Let&apos;s find the part
             <br />
             you need.
