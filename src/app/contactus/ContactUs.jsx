@@ -265,7 +265,7 @@ export default function ContactUs() {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="Your name"
-                  className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D]"
+                  className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D] rounded-lg"
                   style={{ borderColor: "#3A3D40", color: "#F2F0EC" }}
                 />
               </div>
@@ -282,7 +282,7 @@ export default function ContactUs() {
                   value={form.email}
                   onChange={handleChange}
                   placeholder="you@example.com"
-                  className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D]"
+                  className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D] rounded-lg"
                   style={{ borderColor: "#3A3D40", color: "#F2F0EC" }}
                 />
               </div>
@@ -300,7 +300,7 @@ export default function ContactUs() {
                 value={form.message}
                 onChange={handleChange}
                 placeholder="e.g. Do you have brake pads for a Toyota Hilux 2015?"
-                className="resize-none border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D]"
+                className="resize-none rounded-lg border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D]"
                 style={{ borderColor: "#3A3D40", color: "#F2F0EC" }}
               />
             </div>
