@@ -252,7 +252,10 @@ export default function ContactUs() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              variants={rowVariants}
+              // variants={rowVariants}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.01 }}
               whileHover="hover"
               className="group relative flex items-center gap-5 border-b py-6"
               style={{ borderColor: "#2E3134" }}
@@ -275,8 +278,7 @@ export default function ContactUs() {
 
               <ArrowUpRight
                 size={18}
-                className="flex-none opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-                color="#E85D2D"
+                className="flex-none text-black opacity-0 transition-opacity duration-200 group-hover:opacity-100"
               />
             </motion.a>
           ))}
@@ -345,7 +347,7 @@ export default function ContactUs() {
                 <input
                   id="phone"
                   name="phone"
-                  type="text"
+                  type="number"
                   required
                   value={form.phone}
                   onChange={handleChange}
@@ -395,7 +397,6 @@ export default function ContactUs() {
             {status.status === "success" ? (
               <div className="flex text-sm  bg-green-400  rounded-lg px-4 py-3 items-center gap-2">
                 <Info size={15} />
-
                 <p className="">
                   {status?.message}. You will receive a reply as soon as
                   possible.
@@ -404,7 +405,6 @@ export default function ContactUs() {
             ) : status.status === "error" ? (
               <div className="flex text-sm  bg-red-400  rounded-lg px-4 py-3 items-center gap-2">
                 <Info size={15} />
-
                 <p className="">{status?.message}.</p>
               </div>
             ) : (
