@@ -240,7 +240,9 @@ export default function ContactUs() {
         {/* Right: contact methods */}
         <motion.div
           variants={listVariants}
-          initial="hidden"
+          // initial="hidden"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           className="flex flex-col border-t"
