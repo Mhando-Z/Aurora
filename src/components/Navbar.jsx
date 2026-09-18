@@ -210,11 +210,6 @@ function Navbar({ user, profile, roles = [] }) {
       .join("")
       .toUpperCase() || "U";
 
-  // const visibleNavigation = useMemo(
-  //   () => NAVIGATION.filter((item) => !item.protected || user),
-  //   [user],
-  // );
-
   const visibleNavigation = useMemo(() => {
     return NAVIGATION.filter((item) => {
       // Public page
@@ -222,20 +217,20 @@ function Navbar({ user, profile, roles = [] }) {
         return true;
       }
 
-      // User must be logged in
+      // Must be logged in
       if (!user) {
         return false;
       }
 
-      // Protected page with no role restriction
+      // No role restriction
       if (!item.roles) {
         return true;
       }
 
-      // User's role must be allowed
-      return item.roles.includes(roles[0]);
+      // At least one user role must match an allowed role
+      return item.roles.some((role) => roles.includes(role));
     });
-  }, [user]);
+  }, [user, roles]);
 
   const closeProfileMenu = useCallback(() => {
     setProfileOpen(false);
