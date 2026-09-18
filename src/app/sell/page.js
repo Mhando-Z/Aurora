@@ -10,11 +10,34 @@ export const metadata = {
 export default async function SellPage() {
   const supabase = await createClient();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { data: claimsData, error: claimsError } =
+    await supabase.auth.getClaims();
 
-  if (!user) redirect("/login");
+  const userId = claimsData?.claims?.sub;
+
+  const [
+    { data: profile, error: profileError },
+    { data: roles, error: rolesError },
+  ] = await Promise.all([
+    supabase
+      .from("profiles")
+      .select(
+        `
+          id,
+          full_name,
+          phone,
+          avatar_url,
+          onboarding_completed_at,
+          created_at
+        `,
+      )
+      .eq("id", userId)
+      .single(),
+
+    supabase.from("user_roles").select("role").eq("user_id", userId),
+  ]);
+
+  if (roles[0].role === "customer") redirect("/login");
 
   return (
     <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">

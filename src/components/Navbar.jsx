@@ -14,13 +14,6 @@ import { usePathname } from "next/navigation";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-// second icons
-import { IoHomeOutline } from "react-icons/io5";
-import { FaHome } from "react-icons/fa";
-//
-import { TbMailFilled } from "react-icons/tb";
-import { IoMdCube } from "react-icons/io";
-
 import {
   ChevronDown,
   Tag,
@@ -64,6 +57,7 @@ const NAVIGATION = [
     icon: Tag,
     icon2: Tag,
     protected: true,
+    roles: ["admin", "seller"],
   },
   {
     name: "Contact",
@@ -216,10 +210,32 @@ function Navbar({ user, profile, roles = [] }) {
       .join("")
       .toUpperCase() || "U";
 
-  const visibleNavigation = useMemo(
-    () => NAVIGATION.filter((item) => !item.protected || user),
-    [user],
-  );
+  // const visibleNavigation = useMemo(
+  //   () => NAVIGATION.filter((item) => !item.protected || user),
+  //   [user],
+  // );
+
+  const visibleNavigation = useMemo(() => {
+    return NAVIGATION.filter((item) => {
+      // Public page
+      if (!item.protected) {
+        return true;
+      }
+
+      // User must be logged in
+      if (!user) {
+        return false;
+      }
+
+      // Protected page with no role restriction
+      if (!item.roles) {
+        return true;
+      }
+
+      // User's role must be allowed
+      return item.roles.includes(roles[0]);
+    });
+  }, [user]);
 
   const closeProfileMenu = useCallback(() => {
     setProfileOpen(false);
