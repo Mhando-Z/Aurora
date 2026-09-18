@@ -486,7 +486,7 @@ export default function CreateListingForm() {
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="mx-auto max-w-5xl space-y-6"
+      className="mx-auto max-w-7xl px-6 space-y-6"
       variants={prefersReducedMotion ? undefined : CONTAINER_VARIANTS}
       initial={prefersReducedMotion ? undefined : "hidden"}
       animate={prefersReducedMotion ? undefined : "show"}
