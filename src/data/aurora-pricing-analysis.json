@@ -1,0 +1,42 @@
+{
+  "sku_count": 6000,
+  "model_count": 60,
+  "part_count": 100,
+  "distinct_retail_price_points": 29,
+  "retail_min": 5000,
+  "retail_max": 37000,
+  "retail_median": 8500.0,
+  "avg_wholesale": 7971,
+  "avg_retail": 10282.75,
+  "avg_gross_difference": 2311.75,
+  "safely_mapped_existing_models": 12,
+  "safe_mapped_parts": 64,
+  "pricing_rows_directly_mappable": 768,
+  "canonical_catalogue_rows_receiving_price": 756,
+  "brand_stats": {
+    "Boxer": {
+      "sku_count": 1500,
+      "avg_wholesale": 7919,
+      "avg_retail": 10217,
+      "avg_gross_difference": 2298
+    },
+    "Haojue": {
+      "sku_count": 1500,
+      "avg_wholesale": 8396,
+      "avg_retail": 10804,
+      "avg_gross_difference": 2408
+    },
+    "Sinoray": {
+      "sku_count": 1500,
+      "avg_wholesale": 7381,
+      "avg_retail": 9520,
+      "avg_gross_difference": 2139
+    },
+    "TVS": {
+      "sku_count": 1500,
+      "avg_wholesale": 8188,
+      "avg_retail": 10590,
+      "avg_gross_difference": 2402
+    }
+  }
+}
