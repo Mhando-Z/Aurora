@@ -37,7 +37,7 @@ export default async function SellPage() {
     supabase.from("user_roles").select("role").eq("user_id", userId),
   ]);
 
-  if (roles[0].role === "customer") redirect("/login");
+  if (roles.includes("admin")) redirect("/login");
 
   return (
     <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">
