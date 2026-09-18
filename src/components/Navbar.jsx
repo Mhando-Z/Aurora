@@ -23,6 +23,7 @@ import { IoMdCube } from "react-icons/io";
 
 import {
   ChevronDown,
+  Tag,
   Home,
   LogIn,
   LogOut,
@@ -55,6 +56,13 @@ const NAVIGATION = [
     href: "/orders",
     icon: Package,
     icon2: Package,
+    protected: true,
+  },
+  {
+    name: "Sell",
+    href: "/sell",
+    icon: Tag,
+    icon2: Tag,
     protected: true,
   },
   {
