@@ -28,7 +28,8 @@ export default function CancelOrderButton({ orderId }) {
       });
 
       const result = await response.json();
-      if (!response.ok) throw new Error(result.error || "Could not cancel order");
+      if (!response.ok)
+        throw new Error(result.error || "Could not cancel order");
 
       router.refresh();
     } catch (err) {
@@ -44,7 +45,7 @@ export default function CancelOrderButton({ orderId }) {
         type="button"
         onClick={cancelOrder}
         disabled={loading}
-        className="inline-flex items-center gap-2 rounded-xl border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 disabled:opacity-50"
+        className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 disabled:opacity-50"
       >
         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
         Cancel order
