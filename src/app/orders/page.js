@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { PackageOpen } from "lucide-react";
 
 export const metadata = {
-  title: "My Orders | Aurora",
+  title: "My Orders",
 };
 
 function money(value, currency = "TZS") {
