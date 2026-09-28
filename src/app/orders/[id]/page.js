@@ -89,7 +89,7 @@ export default async function OrderDetailPage({ params }) {
 
   return (
     <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
-      <div className="mx-auto container px-6 max-w-7xl">
+      <div className="mx-auto container xl:px-6 max-w-7xl">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
             <p className="text-sm text-black/50">Order</p>
