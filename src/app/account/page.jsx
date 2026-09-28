@@ -44,6 +44,8 @@ export default async function AccountPage() {
     console.error("Roles loading error:", rolesError);
   }
 
+  // console.log(profile);
+
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
       <div className="space-y-8">

@@ -692,7 +692,6 @@ function Navbar({ user, profile, roles = [] }) {
                 </nav>
 
                 {/* MOBILE AUTH */}
-
                 <div className="mt-4 border-t border-black/5 pt-4">
                   {user ? (
                     <form action={logout}>

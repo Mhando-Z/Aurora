@@ -23,7 +23,8 @@ export default async function OrderDetailPage({ params }) {
 
   const { data: order, error } = await supabase
     .from("orders")
-    .select(`
+    .select(
+      `
       id,
       order_number,
       customer_id,
@@ -72,7 +73,8 @@ export default async function OrderDetailPage({ params }) {
         currency,
         paid_at
       )
-    `)
+    `,
+    )
     .eq("id", id)
     .eq("customer_id", user.id)
     .single();
@@ -87,11 +89,11 @@ export default async function OrderDetailPage({ params }) {
 
   return (
     <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto container px-6 max-w-7xl">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
             <p className="text-sm text-black/50">Order</p>
-            <h1 className="mt-1 text-3xl font-bold">{order.order_number}</h1>
+            <h1 className="mt-1 text-xl font-bold">{order.order_number}</h1>
             <p className="mt-2 text-sm text-black/55">
               Placed {new Date(order.placed_at).toLocaleString()}
             </p>
