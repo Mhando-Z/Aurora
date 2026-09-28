@@ -646,7 +646,7 @@ export default function AccountClient({
 
   return (
     <main className="min-h-screen bg-white">
-      <div className="mx-auto max-w-7xl xl:px-6 px-4 py-8 sm:px-6 sm:py-12">
+      <div className="mx-auto max-w-7xl xl:px-6 px-4 py-4 sm:px-6">
         {/* Page heading */}
         <motion.div
           initial="hidden"
@@ -782,7 +782,7 @@ export default function AccountClient({
               <button
                 type="button"
                 onClick={() => goToMissingDetail("profile")}
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                className="inline-flex cursor-pointer shrink-0 items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
               >
                 <Edit3 size={15} />
                 Edit profile
@@ -865,7 +865,7 @@ export default function AccountClient({
                     <button
                       type="button"
                       onClick={() => setEditingProfile(true)}
-                      className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
                     >
                       <Edit3 size={15} />
                       Edit
@@ -914,7 +914,7 @@ export default function AccountClient({
                         type="button"
                         onClick={cancelProfileEdit}
                         disabled={savingProfile}
-                        className="rounded-xl border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                        className="rounded-xl cursor-pointer border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
                       >
                         Cancel
                       </button>
@@ -922,7 +922,7 @@ export default function AccountClient({
                       <button
                         type="submit"
                         disabled={savingProfile}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800 disabled:opacity-50"
+                        className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800 disabled:opacity-50"
                       >
                         {savingProfile ? (
                           <Loader2 size={16} className="animate-spin" />
@@ -990,7 +990,7 @@ export default function AccountClient({
                     <button
                       type="button"
                       onClick={openNewAddress}
-                      className="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800"
                     >
                       <Plus size={16} />
                       Add address
@@ -1021,7 +1021,7 @@ export default function AccountClient({
                         onClick={closeAddressForm}
                         disabled={savingAddress}
                         aria-label="Close address form"
-                        className="rounded-lg p-2 text-gray-500 hover:bg-gray-100"
+                        className="rounded-lg p-2 cursor-pointer text-gray-500 hover:bg-gray-100"
                       >
                         <X size={18} />
                       </button>
@@ -1132,7 +1132,7 @@ export default function AccountClient({
                         type="button"
                         onClick={closeAddressForm}
                         disabled={savingAddress}
-                        className="rounded-xl border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                        className="rounded-xl border cursor-pointer border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
                       >
                         Cancel
                       </button>
@@ -1140,7 +1140,7 @@ export default function AccountClient({
                       <button
                         type="submit"
                         disabled={savingAddress}
-                        className="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-50"
+                        className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-50"
                       >
                         {savingAddress ? (
                           <Loader2 size={16} className="animate-spin" />
@@ -1175,7 +1175,7 @@ export default function AccountClient({
                     <button
                       type="button"
                       onClick={openNewAddress}
-                      className="mt-5 inline-flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50"
+                      className="mt-5 cursor-pointer inline-flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50"
                     >
                       <Plus size={16} />
                       Add your first address
@@ -1269,7 +1269,7 @@ export default function AccountClient({
                                 type="button"
                                 disabled={Boolean(busyAddressId)}
                                 onClick={() => makeDefault(address.id)}
-                                className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-2 text-xs font-medium text-gray-700 hover:bg-white disabled:opacity-50"
+                                className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-2 text-xs font-medium text-gray-700 hover:bg-white disabled:opacity-50"
                               >
                                 {busyAddressId === address.id ? (
                                   <Loader2 size={13} className="animate-spin" />
@@ -1284,7 +1284,7 @@ export default function AccountClient({
                               type="button"
                               disabled={Boolean(busyAddressId)}
                               onClick={() => openEditAddress(address)}
-                              className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium text-gray-600 hover:bg-gray-100 disabled:opacity-50"
+                              className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium text-gray-600 hover:bg-gray-100 disabled:opacity-50"
                             >
                               <Edit3 size={13} />
                               Edit
@@ -1294,7 +1294,7 @@ export default function AccountClient({
                               type="button"
                               disabled={Boolean(busyAddressId)}
                               onClick={() => deleteAddress(address.id)}
-                              className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 disabled:opacity-50"
+                              className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 disabled:opacity-50"
                             >
                               <Trash2 size={13} />
                               Delete
@@ -1345,7 +1345,7 @@ export default function AccountClient({
                 <form action={logoutAction}>
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    className="inline-flex cursor-pointer bg-red-600 text-white items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium"
                   >
                     <LogOut size={16} />
                     Sign out
