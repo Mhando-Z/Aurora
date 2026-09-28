@@ -2,6 +2,8 @@ import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import CancelOrderButton from "@/components/orders/CancelOrderButton";
+import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
 function money(value, currency = "TZS") {
   return new Intl.NumberFormat("en-TZ", {
@@ -88,8 +90,16 @@ export default async function OrderDetailPage({ params }) {
     );
 
   return (
-    <main className="min-h-screen bg-black/[0.025] px-4 py-10 md:px-8">
+    <main className="min-h-screen bg-black/2.5 px-4 py-10 md:px-8">
       <div className="mx-auto container xl:px-6 max-w-7xl">
+        {/* back button */}
+        <Link
+          href="/orders"
+          className="mb-5 cursor-pointer flex text-sm items-center gap-1"
+        >
+          <ChevronLeft size={20} className="" />
+          <button>Back</button>
+        </Link>
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
             <p className="text-sm text-black/50">Order</p>
