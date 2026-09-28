@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { PackageOpen } from "lucide-react";
 
 export const metadata = {
   title: "My Orders | Aurora",
@@ -88,8 +89,22 @@ export default async function OrdersPage() {
             ))}
           </div>
         ) : (
-          <div className="mt-8 rounded-3xl border border-dashed border-black/15 bg-white p-10 text-center">
-            You have not placed an order yet.
+          <div className="mt-8 rounded-3xl border border-dashed border-black/10 bg-white px-6 py-14 text-center shadow-sm">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-black/[0.04]">
+              <PackageOpen
+                className="h-8 w-8 text-black/50"
+                strokeWidth={1.6}
+              />
+            </div>
+
+            <h3 className="mt-5 text-lg font-semibold tracking-tight text-black">
+              No orders yet
+            </h3>
+
+            <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-black/50">
+              You haven&apos;t placed any orders yet. Once you make a purchase,
+              your orders will appear here.
+            </p>
           </div>
         )}
       </div>

@@ -95,10 +95,10 @@ export default async function OrderDetailPage({ params }) {
         {/* back button */}
         <Link
           href="/orders"
-          className="mb-5 cursor-pointer flex text-sm items-center gap-1"
+          className="mb-5 cursor-pointer flex text-sm items-center gap-2"
         >
           <ChevronLeft size={20} className="" />
-          <button>Back</button>
+          <p>Back</p>
         </Link>
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
