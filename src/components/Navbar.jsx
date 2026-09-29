@@ -27,6 +27,7 @@ import {
   User,
   UserPlus,
   X,
+  Gauge,
 } from "lucide-react";
 
 import Auroralogo from "../../public/Auroraicon.png";
@@ -246,7 +247,7 @@ function Navbar({ user, profile, roles = [] }) {
           duration: 0.45,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className={` ${
+        className={`${pathname.startsWith("/dashboard") ? "hidden" : ""} ${
           ["/login", "/register", "/checkemail", "/error"].includes(pathname)
             ? "hidden"
             : "fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-xl"
@@ -394,7 +395,7 @@ function Navbar({ user, profile, roles = [] }) {
                         src={avatarUrl}
                         alt={fullName || "User"}
                         onError={() => setAvatarError(true)}
-                        className="h-8 w-8 rounded-full object-cover ring-1 ring-black/10"
+                        className="h-8 w-8 cursor-pointer rounded-full object-cover ring-1 ring-black/10"
                       />
                     ) : (
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs font-semibold text-white">
@@ -470,6 +471,23 @@ function Navbar({ user, profile, roles = [] }) {
                             Profile
                           </Link>
                         </div>
+
+                        {/* checks if user is admin or not */}
+                        {roles?.includes("admin") ? (
+                          <div className="py-1">
+                            <Link
+                              href="/dashboard"
+                              role="menuitem"
+                              onClick={() => setProfileOpen(false)}
+                              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-black/65 transition hover:bg-black/[0.04] hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
+                            >
+                              <Gauge className="h-4 w-4" />
+                              Dashboard
+                            </Link>
+                          </div>
+                        ) : (
+                          ""
+                        )}
 
                         <div className="border-t border-black/5 pt-1">
                           <form action={logout}>
@@ -732,7 +750,7 @@ function Navbar({ user, profile, roles = [] }) {
       {/* Prevent fixed navbar covering page content */}
       <div
         aria-hidden="true"
-        className={`${["/login", "/register", "/checkemail", "/error"].includes(pathname) ? "hidden" : "h-[68px]"} `}
+        className={`${pathname.startsWith("/dashnoard") ? "hidden" : ""} ${["/login", "/register", "/checkemail", "/error"].includes(pathname) ? "hidden" : "h-[68px]"} `}
       />
     </>
   );
