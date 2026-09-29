@@ -693,28 +693,16 @@ export default function DashboardShell({ user, children, logoutAction }) {
           </div>
 
           <div className="flex items-center gap-3">
-            <span
-              className="
-                hidden rounded-full border
-                border-zinc-200 px-3 py-1.5
-                text-xs text-zinc-600 md:inline-flex
-              "
-            >
-              My account
-            </span>
-
-            <Link
-              href={ROUTES.profile}
-              aria-label="View profile"
+            <div
               className={`
-                rounded-full p-0.5
+                rounded-full p-0.5 cursor-pointer
                 ring-offset-2 transition-shadow
                 hover:ring-2 hover:ring-zinc-200
                 ${FOCUS_RING}
               `}
             >
               <UserAvatar user={user} size="sm" />
-            </Link>
+            </div>
           </div>
         </header>
 
