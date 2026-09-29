@@ -60,20 +60,20 @@ const navigation = [
     items: [
       {
         label: "Overview",
-        href: ROUTES.overview,
+        href: "/dashboard",
         icon: LayoutDashboard,
         exact: true,
       },
       {
         label: "My profile",
-        href: ROUTES.profile,
+        href: "/dashboard/account",
         icon: UserRound,
       },
-      {
-        label: "Addresses",
-        href: ROUTES.addresses,
-        icon: MapPin,
-      },
+      // {
+      //   label: "Addresses",
+      //   href: ROUTES.addresses,
+      //   icon: MapPin,
+      // },
     ],
   },
   {
@@ -336,112 +336,6 @@ function SidebarContent({
         </Link>
       </div>
 
-      {/* User selector */}
-
-      <div className="px-3 pt-5">
-        {compact ? (
-          // Collapsed: there is no room for the details panel,
-          // so the avatar links straight to the profile instead of a dead toggle.
-          <Link
-            href={ROUTES.profile}
-            onClick={onNavigate}
-            title={`${displayName} – view profile`}
-            aria-label={`${displayName} – view profile`}
-            className={`
-              flex w-full items-center justify-center rounded-xl
-              border border-zinc-200 bg-white p-2
-              transition-colors hover:bg-zinc-50
-              ${FOCUS_RING}
-            `}
-          >
-            {avatarWithStatus}
-          </Link>
-        ) : (
-          <button
-            type="button"
-            aria-expanded={accountOpen}
-            aria-controls={`account-details-${variant}`}
-            aria-label="Toggle account details"
-            onClick={() => setAccountOpen((value) => !value)}
-            className={`
-              flex w-full items-center gap-2.5 rounded-xl
-              border border-zinc-200 bg-white p-2.5
-              text-left transition-colors hover:bg-zinc-50
-              ${FOCUS_RING}
-            `}
-          >
-            {avatarWithStatus}
-
-            <div className="min-w-0 flex-1">
-              <div className="truncate text-xs font-semibold text-black">
-                {displayName}
-              </div>
-              <div className="mt-0.5 truncate text-[11px] text-zinc-500">
-                {user.email}
-              </div>
-            </div>
-
-            <ChevronDown
-              size={15}
-              className={`
-                shrink-0 text-zinc-400 transition-transform
-                ${accountOpen ? "rotate-180" : ""}
-              `}
-            />
-          </button>
-        )}
-
-        <AnimatePresence initial={false}>
-          {accountOpen && !compact && (
-            <motion.div
-              id={`account-details-${variant}`}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-2 rounded-xl border border-zinc-200 bg-white p-3">
-                <p className="text-[11px] text-zinc-400">ACCOUNT ROLE</p>
-
-                <div className="mt-1 flex flex-wrap items-center gap-x-1 gap-y-1">
-                  {roleLabels.length ? (
-                    roleLabels.map((role, index) => (
-                      <span
-                        key={`${role}-${index}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-medium capitalize text-black"
-                      >
-                        {isAdminRole(role) && (
-                          <div className="flex items-center gap-2">
-                            <p>Admin</p>
-                            <VerifiedBadge />
-                          </div>
-                        )}
-                      </span>
-                    ))
-                  ) : (
-                    <span className="text-xs font-medium text-black">
-                      Member
-                    </span>
-                  )}
-                </div>
-
-                <div className="my-3 h-px bg-zinc-100 hidden" />
-
-                <Link
-                  href={ROUTES.profile}
-                  onClick={onNavigate}
-                  className={` items-center hidden justify-between rounded-md text-xs text-zinc-600 hover:text-black ${FOCUS_RING}`}
-                >
-                  View profile
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
       {/* Navigation */}
 
       <nav
@@ -480,48 +374,108 @@ function SidebarContent({
       </nav>
 
       {/* Sidebar footer */}
-
-      <div className="shrink-0 border-t border-zinc-100 p-3">
-        {!compact && (
-          <Link
-            href={ROUTES.support}
-            onClick={onNavigate}
-            className={`
-              flex h-10 items-center gap-3 rounded-xl
-              px-3 text-sm text-zinc-600
-              transition-colors hover:bg-zinc-100
-              hover:text-black
-              ${FOCUS_RING}
-            `}
-          >
-            <CircleHelp size={18} />
-            <span>Help & support</span>
-            <ChevronRight size={15} className="ml-auto text-zinc-400" />
-          </Link>
-        )}
-
-        <form action={logoutAction}>
-          <button
-            type="submit"
-            title="Log out"
-            className={`
-              mt-1 flex h-10 w-full items-center
-              rounded-xl text-sm text-zinc-600
-              transition-colors hover:bg-zinc-100
-              hover:text-black
+      <AnimatePresence initial={false}>
+        {accountOpen && !compact && (
+          <motion.div className="px-2">
+            <form action={logoutAction}>
+              <button
+                type="submit"
+                title="Log out"
+                className={`
+              mt-1 flex h-10 cursor-pointer w-full items-center
+              rounded-xl bg-red-600 text-white text-sm
+              transition-colors hover:bg-red-500
               ${FOCUS_RING}
               ${compact ? "justify-center px-2" : "gap-3 px-3"}
             `}
-          >
-            <LogOut size={18} />
+              >
+                <LogOut size={18} />
 
-            {compact ? (
-              <span className="sr-only">Log out</span>
-            ) : (
-              <span>Log out</span>
-            )}
+                {compact ? (
+                  <span className="sr-only">Log out</span>
+                ) : (
+                  <span>Log out</span>
+                )}
+              </button>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* User selector */}
+      <div className="px-3 pt-5">
+        {compact ? (
+          // Collapsed: there is no room for the details panel,
+          // so the avatar links straight to the profile instead of a dead toggle.
+          <Link
+            title={`${displayName} – view profile`}
+            aria-label={`${displayName} – view profile`}
+            className={`
+              flex w-full items-center justify-center rounded-xl
+              border border-zinc-200 bg-white p-2
+              transition-colors hover:bg-zinc-50
+              ${FOCUS_RING}
+            `}
+          >
+            {avatarWithStatus}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            aria-expanded={accountOpen}
+            aria-controls={`account-details-${variant}`}
+            aria-label="Toggle account details"
+            onClick={() => setAccountOpen((value) => !value)}
+            className={`
+              flex w-full cursor-pointer items-center gap-2.5 rounded-xl
+              border border-zinc-200 bg-white p-2.5
+              text-left transition-colors hover:bg-zinc-50
+              ${FOCUS_RING}
+            `}
+          >
+            {avatarWithStatus}
+
+            <div className="min-w-0 flex-1">
+              <div className="truncate ml-1 text-xs font-semibold text-black">
+                {displayName}
+              </div>
+              <div className="mt-0.5 ml-1 truncate text-[11px] text-zinc-500">
+                {user.email}
+              </div>
+              <div className="mt-0.5">
+                <div className="flex items-center gap-x-1">
+                  {roleLabels.length ? (
+                    roleLabels.map((role, index) => (
+                      <span
+                        key={`${role}-${index}`}
+                        className="inline-flex items-center gap-1.5 text-xs font-medium capitalize text-black"
+                      >
+                        {isAdminRole(role) && (
+                          <div className="flex items-center gap-2">
+                            <p>Admin</p>
+                            <VerifiedBadge />
+                          </div>
+                        )}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-xs font-medium text-black">
+                      Member
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <ChevronDown
+              size={15}
+              className={`
+                shrink-0 text-zinc-400 transition-transform
+                ${accountOpen ? "rotate-180" : ""}
+              `}
+            />
           </button>
-        </form>
+        )}
       </div>
     </div>
   );
