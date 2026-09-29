@@ -150,7 +150,7 @@ function VerifiedBadge() {
         size={16}
         strokeWidth={2}
         aria-hidden="true"
-        className="relative fill-black text-white"
+        className="relative fill-blue-600 text-white"
       />
       <span className="sr-only">Verified</span>
     </span>
@@ -411,10 +411,11 @@ function SidebarContent({
                         key={`${role}-${index}`}
                         className="inline-flex items-center gap-1.5 text-xs font-medium capitalize text-black"
                       >
-                        {role}
-                        {isAdminRole(role) && <VerifiedBadge />}
-                        {index < roleLabels.length - 1 && (
-                          <span className="-ml-1 mr-0.5">,</span>
+                        {isAdminRole(role) && (
+                          <div className="flex items-center gap-2">
+                            <p>Admin</p>
+                            <VerifiedBadge />
+                          </div>
                         )}
                       </span>
                     ))
@@ -425,12 +426,12 @@ function SidebarContent({
                   )}
                 </div>
 
-                <div className="my-3 h-px bg-zinc-100" />
+                <div className="my-3 h-px bg-zinc-100 hidden" />
 
                 <Link
                   href={ROUTES.profile}
                   onClick={onNavigate}
-                  className={`flex items-center justify-between rounded-md text-xs text-zinc-600 hover:text-black ${FOCUS_RING}`}
+                  className={` items-center hidden justify-between rounded-md text-xs text-zinc-600 hover:text-black ${FOCUS_RING}`}
                 >
                   View profile
                   <ArrowRight size={14} />
