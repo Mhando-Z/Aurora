@@ -325,7 +325,7 @@ function SidebarContent({
           {!compact && (
             <div className="min-w-0">
               <div className="text-[15px] font-semibold tracking-tight text-black">
-                Dashboard
+                Aurora Spare Parts
               </div>
               <div className="text-[11px] text-zinc-400">
                 Personal workspace
