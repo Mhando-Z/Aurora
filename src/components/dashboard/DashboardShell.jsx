@@ -32,13 +32,13 @@ const navigation = [
     items: [
       {
         label: "Overview",
-        href: "/account",
+        href: "/dashboard",
         icon: LayoutDashboard,
         exact: true,
       },
       {
         label: "My profile",
-        href: "/account/profile",
+        href: "/dashboard/account",
         icon: UserRound,
       },
       {
