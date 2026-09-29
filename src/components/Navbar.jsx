@@ -385,7 +385,7 @@ function Navbar({ user, profile, roles = [] }) {
                     ref={profileButtonRef}
                     type="button"
                     onClick={() => setProfileOpen((current) => !current)}
-                    className="flex items-center gap-2 rounded-xl p-1.5 pr-2 transition hover:bg-black/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
+                    className="flex items-center cursor-pointer gap-2 rounded-xl p-1.5 pr-2 transition hover:bg-black/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
                     aria-haspopup="menu"
                     aria-expanded={profileOpen}
                     aria-controls="profile-menu"
@@ -395,7 +395,7 @@ function Navbar({ user, profile, roles = [] }) {
                         src={avatarUrl}
                         alt={fullName || "User"}
                         onError={() => setAvatarError(true)}
-                        className="h-8 w-8 cursor-pointer rounded-full object-cover ring-1 ring-black/10"
+                        className="h-8 w-8 rounded-full object-cover ring-1 ring-black/10"
                       />
                     ) : (
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs font-semibold text-white">

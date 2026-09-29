@@ -1,7 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import ProductsExplorer from "@/components/products/ProductsExplorer";
 import HeroCarousel from "@/components/products/HeroCarousel";
-import { motion } from "framer-motion";
 
 export const metadata = {
   title: "Motorcycle Spare Parts",

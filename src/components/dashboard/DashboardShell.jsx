@@ -539,7 +539,7 @@ export default function DashboardShell({ user, children, logoutAction }) {
 
         <header
           className="
-            sticky top-0 z-30 flex h-[76px]
+            sticky w-full top-0 z-30 flex h-[76px]
             items-center justify-between
             border-b border-zinc-200
             bg-white/95 px-4 backdrop-blur-xl
