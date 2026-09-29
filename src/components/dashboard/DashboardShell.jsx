@@ -28,6 +28,44 @@ import {
   UserRound,
   X,
 } from "lucide-react";
+import { useFormStatus } from "react-dom";
+import { Loader2 } from "lucide-react";
+
+function LogoutButton({ compact, FOCUS_RING }) {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      title={pending ? "Logging out..." : "Log out"}
+      aria-busy={pending}
+      className={`
+        mt-1 flex h-10 w-full items-center
+        rounded-xl bg-red-600 text-sm text-white
+        transition-all duration-200
+        hover:bg-red-500
+        disabled:cursor-wait disabled:opacity-70
+        ${FOCUS_RING}
+        ${compact ? "justify-center px-2" : "gap-3 px-3"}
+      `}
+    >
+      {pending ? (
+        <Loader2 size={18} className="animate-spin" />
+      ) : (
+        <LogOut size={18} />
+      )}
+
+      {compact ? (
+        <span className="sr-only">
+          {pending ? "Logging out..." : "Log out"}
+        </span>
+      ) : (
+        <span>{pending ? "Logging out..." : "Log out"}</span>
+      )}
+    </button>
+  );
+}
 
 // --------------------------------------------------
 // Routes (single source of truth)
@@ -379,7 +417,7 @@ function SidebarContent({
       </nav>
 
       {/* Sidebar footer */}
-      <AnimatePresence initial={false}>
+      {/* <AnimatePresence initial={false}>
         {accountOpen && !compact && (
           <motion.div className="px-2">
             <form action={logoutAction}>
@@ -402,6 +440,23 @@ function SidebarContent({
                   <span>Log out</span>
                 )}
               </button>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence> */}
+
+      <AnimatePresence initial={false}>
+        {accountOpen && !compact && (
+          <motion.div
+            key="logout"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="overflow-hidden px-2"
+          >
+            <form action={logoutAction}>
+              <LogoutButton compact={compact} FOCUS_RING={FOCUS_RING} />
             </form>
           </motion.div>
         )}
