@@ -294,7 +294,6 @@ function SidebarContent({
   return (
     <div className="flex h-full flex-col">
       {/* Logo */}
-
       <div
         className={`
           flex shrink-0 items-center
@@ -337,7 +336,6 @@ function SidebarContent({
       </div>
 
       {/* Navigation */}
-
       <nav
         aria-label="Dashboard navigation"
         className="mt-6 flex-1 space-y-7 overflow-y-auto px-3 pb-5"
@@ -408,6 +406,8 @@ function SidebarContent({
           // Collapsed: there is no room for the details panel,
           // so the avatar links straight to the profile instead of a dead toggle.
           <Link
+            href={ROUTES.profile}
+            onClick={onNavigate}
             title={`${displayName} – view profile`}
             aria-label={`${displayName} – view profile`}
             className={`
