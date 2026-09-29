@@ -6,71 +6,46 @@ import DashboardShell from "@/components/dashboard/DashboardShell";
 export default async function DashboardLayout({ children }) {
   const supabase = await createClient();
 
-  // Authenticate user
-  const { data: claimsData, error: claimsError } =
-    await supabase.auth.getClaims();
+  // 1. Verify authentication
+  const { data, error } = await supabase.auth.getClaims();
 
-  const userId = claimsData?.claims?.sub;
+  const claims = data?.claims;
+  const userId = claims?.sub;
 
-  if (claimsError || !userId) {
+  if (error || !userId) {
     redirect("/login?next=/account");
   }
 
-  // Retrieve dashboard information
-  const [
-    { data: profile, error: profileError },
-    { data: roles, error: rolesError },
-    { count: addressCount, error: addressError },
-  ] = await Promise.all([
+  // 2. Fetch only essential dashboard information
+  const [profileResult, rolesResult] = await Promise.all([
     supabase
       .from("profiles")
-      .select(
-        `
-          id,
-          full_name,
-          phone,
-          avatar_url,
-          onboarding_completed_at,
-          created_at
-        `,
-      )
+      .select("full_name, avatar_url")
       .eq("id", userId)
-      .single(),
+      .maybeSingle(),
 
     supabase.from("user_roles").select("role").eq("user_id", userId),
-
-    supabase
-      .from("addresses")
-      .select("id", {
-        count: "exact",
-        head: true,
-      })
-      .eq("user_id", userId),
   ]);
 
-  if (profileError) {
-    console.error("Dashboard profile error:", profileError);
+  // 3. Log unexpected database errors
+  if (profileResult.error) {
+    console.error("Dashboard profile error:", profileResult.error);
   }
 
-  if (rolesError) {
-    console.error("Dashboard roles error:", rolesError);
+  if (rolesResult.error) {
+    console.error("Dashboard roles error:", rolesResult.error);
   }
 
-  if (addressError) {
-    console.error("Dashboard address error:", addressError);
-  }
-
+  // 4. Construct minimal user object
   const user = {
     id: userId,
-    email: claimsData?.claims?.email || "",
-    fullName: profile?.full_name || "",
-    phone: profile?.phone || "",
-    avatarUrl: profile?.avatar_url || null,
-    roles: roles || [],
-    addressCount: addressCount || 0,
-    onboardingCompleted: Boolean(profile?.onboarding_completed_at),
+    email: claims.email || "",
+    fullName: profileResult.data?.full_name || "",
+    avatarUrl: profileResult.data?.avatar_url || null,
+    roles: rolesResult.data?.map(({ role }) => role) || [],
   };
 
+  // 5. Render dashboard
   return (
     <DashboardShell user={user} logoutAction={logout}>
       {children}
