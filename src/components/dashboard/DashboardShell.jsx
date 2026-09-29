@@ -768,7 +768,7 @@ export default function DashboardShell({ user, children, logoutAction }) {
 
         <div className="min-h-screen w-full pt-[76px] lg:pl-[var(--sidebar-width)]">
           <main className="min-h-[calc(100vh-76px)]">
-            <div className="mx-auto w-full max-w-[1600px] px-4 py-7 sm:px-6 sm:py-9 lg:px-10">
+            <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6">
               {children}
             </div>
           </main>

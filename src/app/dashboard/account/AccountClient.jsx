@@ -1316,43 +1316,6 @@ export default function AccountClient({
                 </p>
               </div>
             </motion.section>
-
-            {/* Account session */}
-            <motion.section
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              transition={{ delay: 0.2 }}
-              className="rounded-2xl border border-gray-200 bg-white p-5 sm:p-7"
-            >
-              <SectionHeading
-                icon={ShieldCheck}
-                title="Account access"
-                description="Manage your current account session."
-              />
-
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-gray-200 p-4">
-                <div>
-                  <p className="text-sm font-medium text-gray-900">
-                    Sign out of Aurora
-                  </p>
-
-                  <p className="mt-1 text-xs text-gray-500">
-                    End your current session securely.
-                  </p>
-                </div>
-
-                <form action={logoutAction}>
-                  <button
-                    type="submit"
-                    className="inline-flex cursor-pointer bg-red-600 text-white items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium"
-                  >
-                    <LogOut size={16} />
-                    Sign out
-                  </button>
-                </form>
-              </div>
-            </motion.section>
           </div>
 
           {/* Right column */}
