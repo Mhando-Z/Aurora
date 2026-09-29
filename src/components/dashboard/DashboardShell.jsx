@@ -311,11 +311,16 @@ function SidebarContent({
         >
           <div
             className="
-              flex h-9 w-9 shrink-0 items-center
-              justify-center rounded-xl bg-black text-white
+              flex h-12 w-12 bg-white shadow-sm border border-gray-300 shrink-0 items-center
+              justify-center rounded-xl 
             "
           >
-            <LayoutDashboard size={19} strokeWidth={2} />
+            <motion.img
+              src={
+                "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/logos/Aurora.png"
+              }
+              className="object-cover"
+            />
           </div>
 
           {!compact && (
