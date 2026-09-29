@@ -24,6 +24,7 @@ import {
   PanelLeftOpen,
   Settings2,
   ShieldCheck,
+  Tag,
   UserRound,
   X,
 } from "lucide-react";
@@ -62,6 +63,12 @@ const navigation = [
         label: "Overview",
         href: "/dashboard",
         icon: LayoutDashboard,
+        exact: true,
+      },
+      {
+        label: "Sell",
+        href: "/dashboard/sell",
+        icon: Tag,
         exact: true,
       },
       {
