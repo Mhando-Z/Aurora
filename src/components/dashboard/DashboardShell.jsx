@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  MotionConfig,
+  motion,
+  useMotionTemplate,
+  useSpring,
+} from "framer-motion";
 import {
   ArrowRight,
-  Bell,
+  BadgeCheck,
   ChevronDown,
   ChevronRight,
   CircleHelp,
@@ -23,6 +29,28 @@ import {
 } from "lucide-react";
 
 // --------------------------------------------------
+// Routes (single source of truth)
+// NOTE: the original file mixed /dashboard/* and /account/* paths.
+// Adjust these in one place to match your real routes.
+// --------------------------------------------------
+
+const ROUTES = {
+  overview: "/dashboard",
+  profile: "/dashboard/account",
+  addresses: "/account/addresses",
+  security: "/account/security",
+  settings: "/account/settings",
+  support: "/account",
+};
+
+const HEADER_HEIGHT = 76;
+const SIDEBAR_EXPANDED = 264;
+const SIDEBAR_COLLAPSED = 76;
+
+const FOCUS_RING =
+  "outline-none focus-visible:ring-2 focus-visible:ring-black/25 focus-visible:ring-offset-2";
+
+// --------------------------------------------------
 // Navigation configuration
 // --------------------------------------------------
 
@@ -32,18 +60,18 @@ const navigation = [
     items: [
       {
         label: "Overview",
-        href: "/dashboard",
+        href: ROUTES.overview,
         icon: LayoutDashboard,
         exact: true,
       },
       {
         label: "My profile",
-        href: "/dashboard/account",
+        href: ROUTES.profile,
         icon: UserRound,
       },
       {
         label: "Addresses",
-        href: "/account/addresses",
+        href: ROUTES.addresses,
         icon: MapPin,
       },
     ],
@@ -53,17 +81,19 @@ const navigation = [
     items: [
       {
         label: "Security",
-        href: "/account/security",
+        href: ROUTES.security,
         icon: ShieldCheck,
       },
       {
         label: "Settings",
-        href: "/account/settings",
+        href: ROUTES.settings,
         icon: Settings2,
       },
     ],
   },
 ];
+
+const allNavItems = navigation.flatMap((section) => section.items);
 
 // --------------------------------------------------
 // Helpers
@@ -88,16 +118,43 @@ function isActivePath(pathname, item) {
   return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
 
+// Derived from the navigation config so the title can never drift
+// out of sync with the sidebar's active state.
 function getPageTitle(pathname) {
-  const labels = {
-    "/account": "Overview",
-    "/account/profile": "My profile",
-    "/account/addresses": "Addresses",
-    "/account/security": "Security",
-    "/account/settings": "Settings",
-  };
+  const match = allNavItems
+    .filter((item) => isActivePath(pathname, item))
+    .sort((a, b) => b.href.length - a.href.length)[0];
 
-  return labels[pathname] || "Account";
+  return match?.label ?? "Account";
+}
+
+function isAdminRole(role) {
+  return String(role).toLowerCase().includes("admin");
+}
+
+// --------------------------------------------------
+// Verified badge (soft blurred glow + check)
+// --------------------------------------------------
+
+function VerifiedBadge() {
+  return (
+    <span
+      className="relative inline-flex h-4 w-4 shrink-0 items-center justify-center"
+      title="Verified admin"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 rounded-full bg-black/25 blur-[5px]"
+      />
+      <BadgeCheck
+        size={16}
+        strokeWidth={2}
+        aria-hidden="true"
+        className="relative fill-black text-white"
+      />
+      <span className="sr-only">Verified</span>
+    </span>
+  );
 }
 
 // --------------------------------------------------
@@ -134,7 +191,14 @@ function UserAvatar({ user, size = "md" }) {
 // Navigation item
 // --------------------------------------------------
 
-function NavigationItem({ item, pathname, onNavigate, badge, compact }) {
+function NavigationItem({
+  item,
+  pathname,
+  onNavigate,
+  badge,
+  compact,
+  indicatorId,
+}) {
   const Icon = item.icon;
   const active = isActivePath(pathname, item);
 
@@ -147,6 +211,7 @@ function NavigationItem({ item, pathname, onNavigate, badge, compact }) {
       className={`
         group relative flex h-10 items-center
         rounded-xl text-sm transition-colors duration-200
+        ${FOCUS_RING}
         ${compact ? "justify-center px-2" : "gap-3 px-3"}
         ${
           active
@@ -156,6 +221,8 @@ function NavigationItem({ item, pathname, onNavigate, badge, compact }) {
       `}
     >
       <Icon size={18} strokeWidth={active ? 2.1 : 1.8} className="shrink-0" />
+
+      {compact && <span className="sr-only">{item.label}</span>}
 
       {!compact && (
         <>
@@ -178,7 +245,7 @@ function NavigationItem({ item, pathname, onNavigate, badge, compact }) {
 
           {active && (
             <motion.span
-              layoutId="dashboard-active-indicator"
+              layoutId={indicatorId}
               className="h-1.5 w-1.5 rounded-full bg-white"
               transition={{
                 type: "spring",
@@ -203,13 +270,26 @@ function SidebarContent({
   onNavigate,
   logoutAction,
   compact = false,
+  variant = "desktop",
 }) {
   const [accountOpen, setAccountOpen] = useState(false);
 
   const displayName =
     user.fullName || user.email?.split("@")[0] || "My account";
 
-  const roleLabels = user.roles.map((item) => item.role).filter(Boolean);
+  const roleLabels = (user.roles ?? [])
+    .map((item) => item?.role)
+    .filter(Boolean);
+
+  const avatarWithStatus = (
+    <span className="relative shrink-0">
+      <UserAvatar user={user} size="sm" />
+      <span
+        className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-white"
+        title="Signed in"
+      />
+    </span>
+  );
 
   return (
     <div className="flex h-full flex-col">
@@ -217,15 +297,16 @@ function SidebarContent({
 
       <div
         className={`
-          flex h-[76px] shrink-0 items-center
+          flex shrink-0 items-center
           border-b border-zinc-100
           ${compact ? "justify-center px-2" : "px-5"}
         `}
+        style={{ height: HEADER_HEIGHT }}
       >
         <Link
-          href="/account"
+          href={ROUTES.overview}
           onClick={onNavigate}
-          className="flex items-center gap-3"
+          className={`flex items-center gap-3 rounded-xl ${FOCUS_RING}`}
           title="Dashboard"
         >
           <div
@@ -253,45 +334,62 @@ function SidebarContent({
       {/* User selector */}
 
       <div className="px-3 pt-5">
-        <button
-          type="button"
-          aria-expanded={accountOpen}
-          aria-label="Toggle account details"
-          onClick={() => setAccountOpen((value) => !value)}
-          className={`
-            flex w-full items-center rounded-xl
-            border border-zinc-200 bg-white
-            text-left transition-colors hover:bg-zinc-50
-            ${compact ? "justify-center p-2" : "gap-2.5 p-2.5"}
-          `}
-        >
-          <UserAvatar user={user} size="sm" />
+        {compact ? (
+          // Collapsed: there is no room for the details panel,
+          // so the avatar links straight to the profile instead of a dead toggle.
+          <Link
+            href={ROUTES.profile}
+            onClick={onNavigate}
+            title={`${displayName} – view profile`}
+            aria-label={`${displayName} – view profile`}
+            className={`
+              flex w-full items-center justify-center rounded-xl
+              border border-zinc-200 bg-white p-2
+              transition-colors hover:bg-zinc-50
+              ${FOCUS_RING}
+            `}
+          >
+            {avatarWithStatus}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            aria-expanded={accountOpen}
+            aria-controls={`account-details-${variant}`}
+            aria-label="Toggle account details"
+            onClick={() => setAccountOpen((value) => !value)}
+            className={`
+              flex w-full items-center gap-2.5 rounded-xl
+              border border-zinc-200 bg-white p-2.5
+              text-left transition-colors hover:bg-zinc-50
+              ${FOCUS_RING}
+            `}
+          >
+            {avatarWithStatus}
 
-          {!compact && (
-            <>
-              <div className="min-w-0 flex-1">
-                <div className="truncate text-xs font-semibold text-black">
-                  {displayName}
-                </div>
-                <div className="mt-0.5 truncate text-[11px] text-zinc-500">
-                  {user.email}
-                </div>
+            <div className="min-w-0 flex-1">
+              <div className="truncate text-xs font-semibold text-black">
+                {displayName}
               </div>
+              <div className="mt-0.5 truncate text-[11px] text-zinc-500">
+                {user.email}
+              </div>
+            </div>
 
-              <ChevronDown
-                size={15}
-                className={`
-                  shrink-0 text-zinc-400 transition-transform
-                  ${accountOpen ? "rotate-180" : ""}
-                `}
-              />
-            </>
-          )}
-        </button>
+            <ChevronDown
+              size={15}
+              className={`
+                shrink-0 text-zinc-400 transition-transform
+                ${accountOpen ? "rotate-180" : ""}
+              `}
+            />
+          </button>
+        )}
 
         <AnimatePresence initial={false}>
           {accountOpen && !compact && (
             <motion.div
+              id={`account-details-${variant}`}
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -301,16 +399,33 @@ function SidebarContent({
               <div className="mt-2 rounded-xl border border-zinc-200 bg-white p-3">
                 <p className="text-[11px] text-zinc-400">ACCOUNT ROLE</p>
 
-                <p className="mt-1 text-xs font-medium capitalize text-black">
-                  {roleLabels.length ? roleLabels.join(", ") : "Member"}
-                </p>
+                <div className="mt-1 flex flex-wrap items-center gap-x-1 gap-y-1">
+                  {roleLabels.length ? (
+                    roleLabels.map((role, index) => (
+                      <span
+                        key={`${role}-${index}`}
+                        className="inline-flex items-center gap-1.5 text-xs font-medium capitalize text-black"
+                      >
+                        {role}
+                        {isAdminRole(role) && <VerifiedBadge />}
+                        {index < roleLabels.length - 1 && (
+                          <span className="-ml-1 mr-0.5">,</span>
+                        )}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-xs font-medium text-black">
+                      Member
+                    </span>
+                  )}
+                </div>
 
                 <div className="my-3 h-px bg-zinc-100" />
 
                 <Link
-                  href="/account/profile"
+                  href={ROUTES.profile}
                   onClick={onNavigate}
-                  className="flex items-center justify-between text-xs text-zinc-600 hover:text-black"
+                  className={`flex items-center justify-between rounded-md text-xs text-zinc-600 hover:text-black ${FOCUS_RING}`}
                 >
                   View profile
                   <ArrowRight size={14} />
@@ -345,8 +460,9 @@ function SidebarContent({
                   pathname={pathname}
                   onNavigate={onNavigate}
                   compact={compact}
+                  indicatorId={`${variant}-active-indicator`}
                   badge={
-                    item.href === "/account/addresses"
+                    item.href === ROUTES.addresses
                       ? user.addressCount
                       : undefined
                   }
@@ -362,14 +478,15 @@ function SidebarContent({
       <div className="shrink-0 border-t border-zinc-100 p-3">
         {!compact && (
           <Link
-            href="/account"
+            href={ROUTES.support}
             onClick={onNavigate}
-            className="
+            className={`
               flex h-10 items-center gap-3 rounded-xl
               px-3 text-sm text-zinc-600
               transition-colors hover:bg-zinc-100
               hover:text-black
-            "
+              ${FOCUS_RING}
+            `}
           >
             <CircleHelp size={18} />
             <span>Help & support</span>
@@ -386,34 +503,19 @@ function SidebarContent({
               rounded-xl text-sm text-zinc-600
               transition-colors hover:bg-zinc-100
               hover:text-black
+              ${FOCUS_RING}
               ${compact ? "justify-center px-2" : "gap-3 px-3"}
             `}
           >
             <LogOut size={18} />
 
-            {!compact && <span>Log out</span>}
+            {compact ? (
+              <span className="sr-only">Log out</span>
+            ) : (
+              <span>Log out</span>
+            )}
           </button>
         </form>
-
-        {!compact && (
-          <div className="mt-4 flex items-center gap-2 rounded-xl bg-zinc-50 p-2">
-            <UserAvatar user={user} size="sm" />
-
-            <div className="min-w-0 flex-1">
-              <div className="truncate text-xs font-medium text-black">
-                {displayName}
-              </div>
-              <div className="truncate text-[10px] text-zinc-500">
-                {user.email}
-              </div>
-            </div>
-
-            <span
-              className="h-2 w-2 shrink-0 rounded-full bg-emerald-500"
-              title="Signed in"
-            />
-          </div>
-        )}
       </div>
     </div>
   );
@@ -431,119 +533,137 @@ export default function DashboardShell({ user, children, logoutAction }) {
 
   const pageTitle = getPageTitle(pathname);
 
+  // One spring drives the sidebar width, the fixed header offset and the
+  // content padding, so all three move in perfect sync.
+  const sidebarWidth = useSpring(SIDEBAR_EXPANDED, {
+    stiffness: 320,
+    damping: 35,
+  });
+  const sidebarWidthVar = useMotionTemplate`${sidebarWidth}px`;
+
+  useEffect(() => {
+    sidebarWidth.set(sidebarCollapsed ? SIDEBAR_COLLAPSED : SIDEBAR_EXPANDED);
+  }, [sidebarCollapsed, sidebarWidth]);
+
+  // Close the drawer after navigating.
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  // Drawer: Escape to close + lock background scroll while open.
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [mobileOpen]);
+
   return (
-    <div className="min-h-screen bg-white text-black">
-      {/* Desktop sidebar */}
-
-      <motion.aside
-        initial={false}
-        animate={{
-          width: sidebarCollapsed ? 76 : 264,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 320,
-          damping: 35,
-        }}
-        className="
-          fixed inset-y-0 left-0 z-40 hidden
-          overflow-hidden border-r border-zinc-200
-          bg-white lg:block
-        "
+    <MotionConfig reducedMotion="user">
+      <motion.div
+        className="min-h-screen bg-white text-black"
+        style={{ "--sidebar-width": sidebarWidthVar }}
       >
-        <div className="h-full min-w-0">
-          <SidebarContent
-            user={user}
-            pathname={pathname}
-            logoutAction={logoutAction}
-            compact={sidebarCollapsed}
-          />
-        </div>
-      </motion.aside>
+        {/* Desktop sidebar */}
 
-      {/* Mobile drawer */}
-
-      <AnimatePresence>
-        {mobileOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileOpen(false)}
-              className="
-                fixed inset-0 z-50 bg-black/40
-                backdrop-blur-[2px] lg:hidden
-              "
+        <motion.aside
+          style={{ width: sidebarWidth }}
+          className="
+            fixed inset-y-0 left-0 z-40 hidden
+            overflow-hidden border-r border-zinc-200
+            bg-white lg:block
+          "
+        >
+          <div className="h-full min-w-0">
+            <SidebarContent
+              user={user}
+              pathname={pathname}
+              logoutAction={logoutAction}
+              compact={sidebarCollapsed}
+              variant="desktop"
             />
+          </div>
+        </motion.aside>
 
-            <motion.aside
-              initial={{ x: -300 }}
-              animate={{ x: 0 }}
-              exit={{ x: -300 }}
-              transition={{
-                type: "spring",
-                stiffness: 340,
-                damping: 35,
-              }}
-              className="
-                fixed inset-y-0 left-0 z-50
-                w-[min(300px,85vw)] border-r
-                border-zinc-200 bg-white lg:hidden
-              "
-            >
-              <SidebarContent
-                user={user}
-                pathname={pathname}
-                logoutAction={logoutAction}
-                onNavigate={() => setMobileOpen(false)}
+        {/* Mobile drawer */}
+
+        <AnimatePresence>
+          {mobileOpen && (
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setMobileOpen(false)}
+                aria-hidden="true"
+                className="
+                  fixed inset-0 z-50 bg-black/40
+                  backdrop-blur-[2px] lg:hidden
+                "
               />
 
-              <button
-                type="button"
-                onClick={() => setMobileOpen(false)}
-                aria-label="Close navigation"
+              <motion.aside
+                role="dialog"
+                aria-modal="true"
+                aria-label="Navigation menu"
+                initial={{ x: -300 }}
+                animate={{ x: 0 }}
+                exit={{ x: -300 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 340,
+                  damping: 35,
+                }}
                 className="
-                  absolute right-3 top-5 rounded-lg
-                  p-2 text-zinc-500 hover:bg-zinc-100
+                  fixed inset-y-0 left-0 z-50
+                  w-[min(300px,85vw)] border-r
+                  border-zinc-200 bg-white lg:hidden
                 "
               >
-                <X size={18} />
-              </button>
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
+                <SidebarContent
+                  user={user}
+                  pathname={pathname}
+                  logoutAction={logoutAction}
+                  onNavigate={() => setMobileOpen(false)}
+                  variant="mobile"
+                />
 
-      {/* Main page */}
+                <button
+                  type="button"
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Close navigation"
+                  className={`
+                    absolute right-3 top-5 rounded-lg
+                    p-2 text-zinc-500 hover:bg-zinc-100
+                    ${FOCUS_RING}
+                  `}
+                >
+                  <X size={18} />
+                </button>
+              </motion.aside>
+            </>
+          )}
+        </AnimatePresence>
 
-      <motion.div
-        initial={false}
-        animate={{
-          paddingLeft: sidebarCollapsed ? 76 : 264,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 320,
-          damping: 35,
-        }}
-        className="
-          min-h-screen w-full !pl-0
-          lg:!pl-[var(--sidebar-width)]
-        "
-        style={{
-          "--sidebar-width": sidebarCollapsed ? "76px" : "264px",
-        }}
-      >
-        {/* Top header */}
+        {/* Fixed top header */}
 
         <header
           className="
-            sticky w-full top-0 z-30 flex h-[76px]
+            fixed inset-x-0 top-0 z-30 flex h-[76px]
             items-center justify-between
             border-b border-zinc-200
             bg-white/95 px-4 backdrop-blur-xl
-            sm:px-6 lg:px-8
+            sm:px-6 lg:left-[var(--sidebar-width)] lg:px-8
           "
         >
           <div className="flex min-w-0 items-center gap-3">
@@ -551,12 +671,14 @@ export default function DashboardShell({ user, children, logoutAction }) {
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open navigation"
-              className="
+              aria-expanded={mobileOpen}
+              className={`
                 flex h-9 w-9 items-center justify-center
                 rounded-xl border border-zinc-200
                 text-zinc-600 hover:bg-zinc-50
                 lg:hidden
-              "
+                ${FOCUS_RING}
+              `}
             >
               <Menu size={19} />
             </button>
@@ -567,12 +689,13 @@ export default function DashboardShell({ user, children, logoutAction }) {
               aria-label={
                 sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
               }
-              className="
+              className={`
                 hidden h-9 w-9 items-center
                 justify-center rounded-xl
                 text-zinc-500 hover:bg-zinc-100
                 lg:flex
-              "
+                ${FOCUS_RING}
+              `}
             >
               {sidebarCollapsed ? (
                 <PanelLeftOpen size={19} />
@@ -583,23 +706,30 @@ export default function DashboardShell({ user, children, logoutAction }) {
 
             <div className="hidden h-5 w-px bg-zinc-200 lg:block" />
 
-            <div className="flex min-w-0 items-center gap-2 text-sm">
+            <nav
+              aria-label="Breadcrumb"
+              className="flex min-w-0 items-center gap-2 text-sm"
+            >
               <Link
-                href="/account"
-                className="hidden text-zinc-400 hover:text-black sm:block"
+                href={ROUTES.overview}
+                className={`hidden rounded-md text-zinc-400 hover:text-black sm:block ${FOCUS_RING}`}
               >
                 Workspace
               </Link>
 
               <ChevronRight
                 size={14}
+                aria-hidden="true"
                 className="hidden text-zinc-300 sm:block"
               />
 
-              <span className="truncate font-medium text-black">
+              <span
+                aria-current="page"
+                className="truncate font-medium text-black"
+              >
                 {pageTitle}
               </span>
-            </div>
+            </nav>
           </div>
 
           <div className="flex items-center gap-3">
@@ -614,27 +744,30 @@ export default function DashboardShell({ user, children, logoutAction }) {
             </span>
 
             <Link
-              href="/account/profile"
+              href={ROUTES.profile}
               aria-label="View profile"
-              className="
+              className={`
                 rounded-full p-0.5
                 ring-offset-2 transition-shadow
                 hover:ring-2 hover:ring-zinc-200
-              "
+                ${FOCUS_RING}
+              `}
             >
               <UserAvatar user={user} size="sm" />
             </Link>
           </div>
         </header>
 
-        {/* Dashboard content */}
+        {/* Dashboard content (offset for the fixed header + sidebar) */}
 
-        <main className="min-h-[calc(100vh-76px)]">
-          <div className="mx-auto w-full max-w-[1600px] px-4 py-7 sm:px-6 sm:py-9 lg:px-10">
-            {children}
-          </div>
-        </main>
+        <div className="min-h-screen w-full pt-[76px] lg:pl-[var(--sidebar-width)]">
+          <main className="min-h-[calc(100vh-76px)]">
+            <div className="mx-auto w-full max-w-[1600px] px-4 py-7 sm:px-6 sm:py-9 lg:px-10">
+              {children}
+            </div>
+          </main>
+        </div>
       </motion.div>
-    </div>
+    </MotionConfig>
   );
 }
