@@ -23,6 +23,7 @@ import {
   LogOut,
   MapPin,
   Menu,
+  PackageOpen,
   PanelLeftClose,
   PanelLeftOpen,
   Settings2,
@@ -104,6 +105,12 @@ const navigation = [
         label: "Overview",
         href: "/dashboard",
         icon: LayoutDashboard,
+        exact: true,
+      },
+      {
+        label: "Products",
+        href: "/dashboard/products",
+        icon: PackageOpen,
         exact: true,
       },
       {
