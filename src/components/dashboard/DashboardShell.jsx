@@ -778,7 +778,7 @@ export default function DashboardShell({ user, children, logoutAction }) {
             </div>
             <div
               className={`
-                rounded-full p-0.5 cursor-pointer
+                rounded-full hidden p-0.5 cursor-pointer
                 ring-offset-2 transition-shadow
                 hover:ring-2 hover:ring-zinc-200
                 ${FOCUS_RING}
