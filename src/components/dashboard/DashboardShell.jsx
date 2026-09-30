@@ -758,11 +758,14 @@ export default function DashboardShell({ user, children, logoutAction }) {
               href={"/"}
               className="rounded-full cursor-pointer bg-white hover:shadow-sm hover:border hover:border-gray-300 p-2"
             >
-              <LaptopMinimal className="hover:fill-black text-gray-600" />
+              <LaptopMinimal
+                size={19}
+                className="hover:fill-black text-gray-600"
+              />
             </Link>
             {/* notification icon */}
             <div className="rounded-full cursor-pointer bg-white hover:shadow-sm hover:border hover:border-gray-300 p-2">
-              <Bell className="hover:fill-black text-gray-600" />
+              <Bell size={19} className="hover:fill-black text-gray-600" />
               {/* when we have notification shows the animated below icon */}
               {/* <BellRing/> */}
             </div>
