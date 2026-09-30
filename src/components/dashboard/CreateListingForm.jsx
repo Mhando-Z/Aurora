@@ -90,7 +90,7 @@ function StepBadge({ index, done }) {
   );
 }
 
-export default function CreateListingForm() {
+export default function CreateListingForm({ onClose }) {
   const router = useRouter();
   const supabase = useMemo(() => createClient(), []);
   const prefersReducedMotion = useReducedMotion();
@@ -1071,22 +1071,35 @@ export default function CreateListingForm() {
             ? "Everything looks ready to publish."
             : `${steps.length - completedCount} section${steps.length - completedCount === 1 ? "" : "s"} still need attention.`}
         </p>
-        <motion.button
-          type="submit"
-          disabled={submitting}
-          whileTap={
-            !prefersReducedMotion && !submitting ? { scale: 0.97 } : undefined
-          }
-          className="ml-auto cursor-pointer inline-flex min-w-48 items-center justify-center gap-2 rounded-xl bg-black px-6 py-2 font-semibold text-white transition-opacity disabled:opacity-50"
-        >
-          {submitting ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" /> Publishing…
-            </>
-          ) : (
-            "Publish product"
-          )}
-        </motion.button>
+
+        <div className="gap-2 flex items-center">
+          <motion.button
+            onClick={onClose}
+            disabled={submitting}
+            whileTap={
+              !prefersReducedMotion && !submitting ? { scale: 0.97 } : undefined
+            }
+            className="ml-auto border border-gray-300 cursor-pointer inline-flex min-w-48 items-center justify-center gap-2 rounded-xl  px-6 py-2 font-semibold transition-opacity disabled:opacity-50"
+          >
+            cancel
+          </motion.button>
+          <motion.button
+            type="submit"
+            disabled={submitting}
+            whileTap={
+              !prefersReducedMotion && !submitting ? { scale: 0.97 } : undefined
+            }
+            className="ml-auto cursor-pointer inline-flex min-w-48 items-center justify-center gap-2 rounded-xl bg-black px-6 py-2 font-semibold text-white transition-opacity disabled:opacity-50"
+          >
+            {submitting ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" /> Publishing…
+              </>
+            ) : (
+              "Publish product"
+            )}
+          </motion.button>
+        </div>
       </motion.div>
     </motion.form>
   );

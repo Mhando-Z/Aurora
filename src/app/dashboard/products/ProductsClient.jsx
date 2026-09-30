@@ -952,7 +952,7 @@ function ProductFormModal({ product, onClose, onSuccess }) {
                   type="button"
                   disabled={isPending}
                   onClick={onClose}
-                  className="h-11 rounded-xl border border-neutral-200 px-5 text-sm font-medium transition hover:bg-neutral-50 disabled:opacity-50"
+                  className="h-10 cursor-pointer rounded-xl border border-neutral-200 px-5 text-sm font-medium transition hover:bg-neutral-50 disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -960,7 +960,7 @@ function ProductFormModal({ product, onClose, onSuccess }) {
                 <button
                   disabled={isPending}
                   type="submit"
-                  className="flex h-11 min-w-32 items-center justify-center gap-2 rounded-xl bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex h-10 cursor-pointer min-w-32 items-center justify-center gap-2 rounded-xl bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {isPending ? (
                     <>
@@ -980,7 +980,7 @@ function ProductFormModal({ product, onClose, onSuccess }) {
           </>
         ) : (
           <div className="h-[800px]  overflow-y-auto">
-            <CreateListingForm />
+            <CreateListingForm onClose={onClose} />
           </div>
         )}
       </motion.div>
