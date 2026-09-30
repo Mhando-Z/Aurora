@@ -314,7 +314,7 @@ function Navbar({ user, profile, roles = [] }) {
                       : "text-black/55 hover:bg-black/4 hover:text-black"
                   }`}
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className={`h-4 w-4`} />
 
                   {item.name}
 
