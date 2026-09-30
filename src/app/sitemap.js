@@ -1,7 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 
 export default async function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://auroraspareparts.vercel.app";
 
   const supabase = await createClient();
 

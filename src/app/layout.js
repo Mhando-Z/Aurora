@@ -219,17 +219,8 @@ export default async function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <AuthSync serverUserId={user?.id ?? null} />
-
-        <UserProvider initialData={userData}>
-          <DataProvider>
-            <Navbar user={user} profile={profile} roles={roles} />
-
-            <main className="flex-1">{children}</main>
-          </DataProvider>
-        </UserProvider>
-
+      <head>
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QH8K9BEMXX"
           strategy="afterInteractive"
@@ -243,6 +234,45 @@ export default async function RootLayout({ children }) {
             gtag('config', 'G-QH8K9BEMXX');
           `}
         </Script>
+
+        <script
+          id="organization-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+        >
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Aurora Spare Parts",
+            url: "https://auroraspareparts.vercel.app",
+            logo: "https://gdagjlvlwmagvonhepsc.supabase.co/storage/v1/object/public/Assets/logos/Aurora%20logo.png",
+            description:
+              "Aurora Spare Parts is a motorcycle spare parts marketplace connecting riders, mechanics, retailers, suppliers and businesses with motorcycle parts and accessories.",
+
+            areaServed: {
+              "@type": "Country",
+              name: "Tanzania",
+            },
+            foundingLocation: {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "TZ",
+              },
+            },
+          })}
+        </script>
+      </head>
+      <body className="min-h-full flex flex-col">
+        <AuthSync serverUserId={user?.id ?? null} />
+
+        <UserProvider initialData={userData}>
+          <DataProvider>
+            <Navbar user={user} profile={profile} roles={roles} />
+
+            <main className="flex-1">{children}</main>
+          </DataProvider>
+        </UserProvider>
       </body>
     </html>
   );
