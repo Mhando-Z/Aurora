@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import ProductsExplorer from "@/components/products/ProductsExplorer";
 import HeroCarousel from "@/components/products/HeroCarousel";
+import { PackageSearch } from "lucide-react";
 
 export const metadata = {
   title: "Motorcycle Spare Parts",
@@ -103,8 +104,28 @@ export default async function ProductsPage() {
         <HeroCarousel slides={carouselSlides} />
 
         {error ? (
-          <div className="rounded-2xl border border-black/10 bg-white p-6">
-            Products could not be loaded: {error.message}
+          <div className="rounded-2xl border border-red-100 bg-white p-8 shadow-sm">
+            <div className="flex flex-col items-center text-center">
+              {/* Icon */}
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-50">
+                <PackageSearch
+                  className="h-7 w-7 text-red-500"
+                  strokeWidth={1.8}
+                />
+              </div>
+
+              {/* Heading */}
+              <h3 className="text-base font-semibold text-gray-900">
+                Unable to load products
+              </h3>
+
+              {/* Description */}
+              <p className="mt-2 max-w-md text-sm leading-6 text-gray-500">
+                We couldn't retrieve the products right now. This may be a
+                temporary connection problem. Check for internet connection then
+                reload the page
+              </p>
+            </div>
           </div>
         ) : (
           <ProductsExplorer products={products ?? []} />
