@@ -276,7 +276,7 @@ export default function ProductsClient({ initialProducts = [] }) {
 
   return (
     <div className="min-h-full bg-white text-black">
-      <div className="mx-auto w-full max-w-[1600px] px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1600px] px-4 ">
         {/* Header */}
         <div className="flex flex-col gap-5 border-b border-neutral-200 pb-6 md:flex-row md:items-end md:justify-between">
           <div>
