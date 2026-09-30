@@ -13,9 +13,12 @@ import {
 import {
   ArrowRight,
   BadgeCheck,
+  Bell,
+  BellRing,
   ChevronDown,
   ChevronRight,
   CircleHelp,
+  LaptopMinimal,
   LayoutDashboard,
   LogOut,
   MapPin,
@@ -750,6 +753,19 @@ export default function DashboardShell({ user, children, logoutAction }) {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* home icone */}
+            <Link
+              href={"/"}
+              className="rounded-full cursor-pointer bg-white hover:shadow-sm hover:border hover:border-gray-300 p-2"
+            >
+              <LaptopMinimal className="hover:fill-black" />
+            </Link>
+            {/* notification icon */}
+            <div className="rounded-full cursor-pointer bg-white hover:shadow-sm hover:border hover:border-gray-300 p-2">
+              <Bell className="hover:fill-black" />
+              {/* when we have notification shows the animated below icon */}
+              {/* <BellRing/> */}
+            </div>
             <div
               className={`
                 rounded-full p-0.5 cursor-pointer
