@@ -132,7 +132,7 @@ export default function ProductsExplorer({ products }) {
             onClick={() => setFiltersOpen((v) => !v)}
             className={`flex items-center gap-2 rounded-2xl border px-4 py-2.5 text-sm font-medium transition ${
               filtersOpen
-                ? "border-black/30 bg-black/[0.04]"
+                ? "border-black/30 bg-black/4"
                 : "border-black/10 bg-white"
             }`}
           >
