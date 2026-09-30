@@ -114,28 +114,23 @@ const navigation = [
         href: "/dashboard/account",
         icon: UserRound,
       },
-      // {
-      //   label: "Addresses",
-      //   href: ROUTES.addresses,
-      //   icon: MapPin,
-      // },
     ],
   },
-  {
-    title: "ACCOUNT",
-    items: [
-      {
-        label: "Security",
-        href: ROUTES.security,
-        icon: ShieldCheck,
-      },
-      {
-        label: "Settings",
-        href: ROUTES.settings,
-        icon: Settings2,
-      },
-    ],
-  },
+  // {
+  //   title: "ACCOUNT",
+  //   items: [
+  //     {
+  //       label: "Security",
+  //       href: ROUTES.security,
+  //       icon: ShieldCheck,
+  //     },
+  //     {
+  //       label: "Settings",
+  //       href: ROUTES.settings,
+  //       icon: Settings2,
+  //     },
+  //   ],
+  // },
 ];
 
 const allNavItems = navigation.flatMap((section) => section.items);
