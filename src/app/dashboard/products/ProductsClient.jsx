@@ -33,6 +33,7 @@ import {
   deleteProductAction,
   updateProductAction,
 } from "./actions";
+import CreateListingForm from "@/components/dashboard/CreateListingForm";
 
 const CONDITIONS = [
   "New",
@@ -297,7 +298,7 @@ export default function ProductsClient({ initialProducts = [] }) {
 
           <button
             onClick={openCreateProduct}
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 active:scale-[0.98]"
+            className="inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-xl bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 active:scale-[0.98]"
           >
             <Plus size={17} />
             Add product
@@ -815,159 +816,173 @@ function ProductFormModal({ product, onClose, onSuccess }) {
           stiffness: 350,
           damping: 30,
         }}
-        className="w-full max-w-xl rounded-t-3xl bg-white sm:rounded-3xl"
+        className={`w-full ${isEditing ? "max-w-xl" : "max-w-5xl"}  rounded-t-3xl bg-white sm:rounded-3xl`}
       >
-        <form onSubmit={handleSubmit}>
-          <div className="flex items-start justify-between border-b border-neutral-200 px-5 py-5 sm:px-6">
-            <div>
-              <h2 className="text-lg font-semibold">
-                {isEditing ? "Edit product" : "Create product"}
-              </h2>
+        {isEditing ? (
+          <>
+            <form onSubmit={handleSubmit}>
+              <div className="flex items-start justify-between border-b border-neutral-200 px-5 py-5 sm:px-6">
+                <div>
+                  <h2 className="text-lg font-semibold">
+                    {isEditing ? "Edit product" : "Create product"}
+                  </h2>
 
-              <p className="mt-1 text-sm text-neutral-500">
-                {isEditing
-                  ? "Update your product information."
-                  : "Add another item to your store."}
-              </p>
-            </div>
+                  <p className="mt-1 text-sm text-neutral-500">
+                    {isEditing
+                      ? "Update your product information."
+                      : "Add another item to your store."}
+                  </p>
+                </div>
 
-            <button
-              type="button"
-              disabled={isPending}
-              onClick={onClose}
-              className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-neutral-100 disabled:opacity-40"
-            >
-              <X size={18} />
-            </button>
-          </div>
-
-          <div className="max-h-[70vh] space-y-5 overflow-y-auto px-5 py-6 sm:px-6">
-            <div>
-              <label className="mb-2 block text-sm font-medium">
-                Product title
-              </label>
-
-              <input
-                required
-                value={form.title}
-                onChange={(event) => updateField("title", event.target.value)}
-                placeholder="e.g. MacBook Pro 14-inch"
-                className="h-11 w-full rounded-xl border border-neutral-200 px-3.5 text-sm outline-none transition focus:border-black"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div>
-                <label className="mb-2 block text-sm font-medium">Price</label>
-
-                <input
-                  required
-                  min="0"
-                  type="number"
-                  value={form.price}
-                  onChange={(event) => updateField("price", event.target.value)}
-                  placeholder="0"
-                  className="h-11 w-full rounded-xl border border-neutral-200 px-3.5 text-sm outline-none transition focus:border-black"
-                />
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-medium">
-                  Currency
-                </label>
-
-                <select
-                  value={form.currency}
-                  onChange={(event) =>
-                    updateField("currency", event.target.value)
-                  }
-                  className="h-11 w-full rounded-xl border border-neutral-200 bg-white px-3.5 text-sm outline-none focus:border-black"
+                <button
+                  type="button"
+                  disabled={isPending}
+                  onClick={onClose}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-neutral-100 disabled:opacity-40"
                 >
-                  <option value="TZS">TZS</option>
-                  <option value="USD">USD</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div>
-                <label className="mb-2 block text-sm font-medium">
-                  Quantity
-                </label>
-
-                <input
-                  required
-                  min="0"
-                  step="1"
-                  type="number"
-                  value={form.quantity}
-                  onChange={(event) =>
-                    updateField("quantity", event.target.value)
-                  }
-                  className="h-11 w-full rounded-xl border border-neutral-200 px-3.5 text-sm outline-none transition focus:border-black"
-                />
+                  <X size={18} />
+                </button>
               </div>
 
-              <div>
-                <label className="mb-2 block text-sm font-medium">
-                  Condition
-                </label>
+              <div className="max-h-[70vh] space-y-5 overflow-y-auto px-5 py-6 sm:px-6">
+                <div>
+                  <label className="mb-2 block text-sm font-medium">
+                    Product title
+                  </label>
 
-                <select
-                  value={form.condition}
-                  onChange={(event) =>
-                    updateField("condition", event.target.value)
-                  }
-                  className="h-11 w-full rounded-xl border border-neutral-200 bg-white px-3.5 text-sm outline-none focus:border-black"
+                  <input
+                    required
+                    value={form.title}
+                    onChange={(event) =>
+                      updateField("title", event.target.value)
+                    }
+                    placeholder="e.g. MacBook Pro 14-inch"
+                    className="h-11 w-full rounded-xl border border-neutral-200 px-3.5 text-sm outline-none transition focus:border-black"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Price
+                    </label>
+
+                    <input
+                      required
+                      min="0"
+                      type="number"
+                      value={form.price}
+                      onChange={(event) =>
+                        updateField("price", event.target.value)
+                      }
+                      placeholder="0"
+                      className="h-11 w-full rounded-xl border border-neutral-200 px-3.5 text-sm outline-none transition focus:border-black"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Currency
+                    </label>
+
+                    <select
+                      value={form.currency}
+                      onChange={(event) =>
+                        updateField("currency", event.target.value)
+                      }
+                      className="h-11 w-full rounded-xl border border-neutral-200 bg-white px-3.5 text-sm outline-none focus:border-black"
+                    >
+                      <option value="TZS">TZS</option>
+                      <option value="USD">USD</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Quantity
+                    </label>
+
+                    <input
+                      required
+                      min="0"
+                      step="1"
+                      type="number"
+                      value={form.quantity}
+                      onChange={(event) =>
+                        updateField("quantity", event.target.value)
+                      }
+                      className="h-11 w-full rounded-xl border border-neutral-200 px-3.5 text-sm outline-none transition focus:border-black"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Condition
+                    </label>
+
+                    <select
+                      value={form.condition}
+                      onChange={(event) =>
+                        updateField("condition", event.target.value)
+                      }
+                      className="h-11 w-full rounded-xl border border-neutral-200 bg-white px-3.5 text-sm outline-none focus:border-black"
+                    >
+                      {CONDITIONS.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {error && (
+                  <div className="flex items-start gap-2 rounded-xl bg-neutral-100 p-3 text-sm">
+                    <AlertTriangle size={17} className="mt-0.5 shrink-0" />
+
+                    <span>{error}</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="flex flex-col-reverse gap-2 border-t border-neutral-200 px-5 py-4 sm:flex-row sm:justify-end sm:px-6">
+                <button
+                  type="button"
+                  disabled={isPending}
+                  onClick={onClose}
+                  className="h-11 rounded-xl border border-neutral-200 px-5 text-sm font-medium transition hover:bg-neutral-50 disabled:opacity-50"
                 >
-                  {CONDITIONS.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
+                  Cancel
+                </button>
+
+                <button
+                  disabled={isPending}
+                  type="submit"
+                  className="flex h-11 min-w-32 items-center justify-center gap-2 rounded-xl bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isPending ? (
+                    <>
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                      Saving...
+                    </>
+                  ) : (
+                    <>
+                      {isEditing ? <Check size={16} /> : <Plus size={16} />}
+
+                      {isEditing ? "Save changes" : "Create product"}
+                    </>
+                  )}
+                </button>
               </div>
-            </div>
-
-            {error && (
-              <div className="flex items-start gap-2 rounded-xl bg-neutral-100 p-3 text-sm">
-                <AlertTriangle size={17} className="mt-0.5 shrink-0" />
-
-                <span>{error}</span>
-              </div>
-            )}
+            </form>
+          </>
+        ) : (
+          <div className="h-[800px]  overflow-y-auto">
+            <CreateListingForm />
           </div>
-
-          <div className="flex flex-col-reverse gap-2 border-t border-neutral-200 px-5 py-4 sm:flex-row sm:justify-end sm:px-6">
-            <button
-              type="button"
-              disabled={isPending}
-              onClick={onClose}
-              className="h-11 rounded-xl border border-neutral-200 px-5 text-sm font-medium transition hover:bg-neutral-50 disabled:opacity-50"
-            >
-              Cancel
-            </button>
-
-            <button
-              disabled={isPending}
-              type="submit"
-              className="flex h-11 min-w-32 items-center justify-center gap-2 rounded-xl bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {isPending ? (
-                <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                  Saving...
-                </>
-              ) : (
-                <>
-                  {isEditing ? <Check size={16} /> : <Plus size={16} />}
-
-                  {isEditing ? "Save changes" : "Create product"}
-                </>
-              )}
-            </button>
-          </div>
-        </form>
+        )}
       </motion.div>
     </motion.div>
   );
