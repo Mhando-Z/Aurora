@@ -113,12 +113,12 @@ const navigation = [
         icon: PackageOpen,
         exact: true,
       },
-      {
-        label: "Sell",
-        href: "/dashboard/sell",
-        icon: Tag,
-        exact: true,
-      },
+      // {
+      //   label: "Sell",
+      //   href: "/dashboard/sell",
+      //   icon: Tag,
+      //   exact: true,
+      // },
       {
         label: "My profile",
         href: "/dashboard/account",
