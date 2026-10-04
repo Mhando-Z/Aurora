@@ -329,19 +329,7 @@ function buildEmailHtml({ name, email, phone, subject, message }) {
                   </tr>
                 </table>
               </td>
-            </tr>
-
-            <!-- Title band -->
-            <tr>
-              <td class="px" bgcolor="${BRAND.black}" style="background-color:${BRAND.black}; padding:26px 36px;">
-                <div style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#a3a3a3;">
-                  New message
-                </div>
-                <div class="title" style="margin-top:6px; font-size:26px; font-weight:800; line-height:1.25; color:${BRAND.white}; letter-spacing:-0.3px;">
-                  New Website Inquiry
-                </div>
-              </td>
-            </tr>
+            </tr> 
 
             <!-- Sender card -->
             <tr>
@@ -434,7 +422,7 @@ function buildEmailHtml({ name, email, phone, subject, message }) {
                   <tr>
                     <td
                       bgcolor="${BRAND.panel}"
-                      style="background-color:${BRAND.panel}; border:1px solid ${BRAND.border}; border-left:4px solid ${BRAND.black}; border-radius:4px 10px 10px 4px; padding:20px 22px; font-size:15px; line-height:1.75; color:${BRAND.body}; white-space:pre-wrap; word-break:break-word;"
+                      style="background-color:${BRAND.panel};   solid ${BRAND.border};   solid ${BRAND.black}; border-radius:4px 10px 10px 4px; padding:20px 22px; font-size:15px; line-height:1.75; color:${BRAND.body}; white-space:pre-wrap; word-break:break-word;"
                     >${safeMessage}</td>
                   </tr>
                 </table>
