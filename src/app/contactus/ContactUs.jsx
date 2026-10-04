@@ -12,7 +12,6 @@ import {
   Info,
 } from "lucide-react";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 
 const CONTACTS = [
   {
@@ -44,7 +43,6 @@ const CONTACTS = [
 const MAPS_URL = "https://maps.app.goo.gl/NGvAqiknGePHw65m9";
 const MAP_EMBED_SRC =
   "https://www.google.com/maps?q=-6.764039,38.951791&z=16&output=embed";
-const EMAIL = "auroraspareparts@gmail.com";
 
 const listVariants = {
   hidden: {},
@@ -68,6 +66,7 @@ export default function ContactUs() {
     email: "",
     phone: "",
     message: "",
+    subject: "",
   });
   const [status, setStatus] = useState({
     status: "",
@@ -75,49 +74,76 @@ export default function ContactUs() {
   });
   const [sending, setSending] = useState(false);
 
-  async function sendEmail(event) {
-    event.preventDefault();
+  const handleStatus = (status, message) => {
+    setStatus({
+      status,
+      message,
+    });
+
+    setTimeout(() => {
+      setStatus({
+        status: "",
+        message: "",
+      });
+    }, 5000);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (sending) return;
 
     setSending(true);
-    setStatus({ status: "", message: "" });
+    setStatus({
+      status: "",
+      message: "",
+    });
 
     try {
-      const now = new Date();
-
-      const templateParams = {
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        message: form.message,
-        time: now.toLocaleString(),
-      };
-
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        {
-          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send message.");
+      }
+
+      handleStatus(
+        "success",
+        "Your message has been sent successfully. Our team will get back to you shortly.",
       );
 
-      setStatus({ status: "success", message: "Message sent successfully!" });
       setForm({
         name: "",
         email: "",
-        phone: "",
+        subject: "",
         message: "",
+        phone: "",
       });
     } catch (error) {
-      console.error("EmailJS error:", error);
-      setStatus({
-        status: "error",
-        message: "Failed to send message. Please try again.",
-      });
+      console.error("Contact form error:", error);
+
+      handleStatus(
+        "error",
+        error.message ||
+          "We couldn't send your message. Please try again in a few moments.",
+      );
     } finally {
       setSending(false);
     }
-  }
+  };
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -307,7 +333,7 @@ export default function ContactUs() {
             </p>
           </div>
 
-          <form onSubmit={sendEmail} className="flex flex-col gap-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm">
@@ -342,6 +368,7 @@ export default function ContactUs() {
                   style={{ borderColor: "#3A3D40" }}
                 />
               </div>
+
               <div className="flex flex-col gap-2">
                 <label htmlFor="phone" className="text-sm">
                   Phone Number
@@ -349,11 +376,28 @@ export default function ContactUs() {
                 <input
                   id="phone"
                   name="phone"
-                  type="number"
+                  type="tel"
                   required
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="+255.."
+                  className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D] rounded-lg"
+                  style={{ borderColor: "#3A3D40" }}
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="subject" className="text-sm">
+                  Subject
+                </label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  required
+                  value={form.subject}
+                  onChange={handleChange}
+                  placeholder="Enter subject"
                   className="border bg-transparent px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-[#E85D2D] rounded-lg"
                   style={{ borderColor: "#3A3D40" }}
                 />

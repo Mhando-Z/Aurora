@@ -740,6 +740,7 @@ function ProductFormModal({ product, onClose, onSuccess }) {
     quantity: product?.quantity ?? 1,
     currency: product?.currency || "TZS",
     condition: product?.condition || "New",
+    subject: product?.subject || "",
   });
 
   const isEditing = Boolean(product);
