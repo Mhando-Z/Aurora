@@ -475,6 +475,7 @@ export default function CreateListingForm({ onClose }) {
 
       toast.success("Product published successfully.");
       router.push(`/dashboard/products`);
+      onClose?.();
       router.refresh();
     } catch (error) {
       toast.error(error.message || "Product could not be published.");

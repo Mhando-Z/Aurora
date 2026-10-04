@@ -20,6 +20,11 @@ export function DataProvider({ children }) {
   const [cartError, setCartError] = useState("");
   const [cartBusyId, setCartBusyId] = useState(null);
 
+
+  // const fetchProducts=async
+
+  
+
   // =========================================================
   // LOAD CART
   // =========================================================

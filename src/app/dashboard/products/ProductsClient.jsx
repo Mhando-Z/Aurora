@@ -704,14 +704,14 @@ function ProductTable({ products, onEdit, onDelete }) {
                     <div className="flex justify-end gap-1">
                       <button
                         onClick={() => onEdit(product)}
-                        className="flex h-9 w-9 items-center justify-center rounded-lg transition hover:bg-neutral-100"
+                        className="flex cursor-pointer h-9 w-9 items-center justify-center rounded-lg transition hover:bg-neutral-100"
                       >
                         <Edit3 size={15} />
                       </button>
 
                       <button
                         onClick={() => onDelete(product)}
-                        className="flex h-9 w-9 items-center justify-center rounded-lg transition hover:bg-neutral-100"
+                        className="flex cursor-pointer h-9 w-9 items-center justify-center rounded-lg transition hover:bg-neutral-100"
                       >
                         <Trash2 size={15} />
                       </button>
@@ -1029,7 +1029,7 @@ function DeleteModal({ product, loading, onCancel, onDelete }) {
           <button
             disabled={loading}
             onClick={onCancel}
-            className="h-10 rounded-xl border border-neutral-200 px-4 text-sm font-medium hover:bg-neutral-50 disabled:opacity-50"
+            className="h-10 cursor-pointer rounded-xl border border-neutral-200 px-4 text-sm font-medium hover:bg-neutral-50 disabled:opacity-50"
           >
             Cancel
           </button>
@@ -1037,7 +1037,7 @@ function DeleteModal({ product, loading, onCancel, onDelete }) {
           <button
             disabled={loading}
             onClick={onDelete}
-            className="flex h-10 min-w-24 items-center justify-center gap-2 rounded-xl bg-black px-4 text-sm font-medium text-white hover:bg-neutral-800 disabled:opacity-60"
+            className="flex h-10 cursor-pointer min-w-24 items-center justify-center gap-2 rounded-xl bg-black px-4 text-sm font-medium text-white hover:bg-neutral-800 disabled:opacity-60"
           >
             {loading ? (
               <>
@@ -1077,7 +1077,7 @@ function EmptyProducts({ hasProducts, onCreate }) {
       {!hasProducts && (
         <button
           onClick={onCreate}
-          className="mt-5 flex h-10 items-center gap-2 rounded-xl bg-black px-4 text-sm font-medium text-white hover:bg-neutral-800"
+          className="mt-5 flex h-10 cursor-pointer items-center gap-2 rounded-xl bg-black px-4 text-sm font-medium text-white hover:bg-neutral-800"
         >
           <Plus size={16} />
           Add your first product

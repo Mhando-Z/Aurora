@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import ProductsExplorer from "@/components/products/ProductsExplorer";
 import HeroCarousel from "@/components/products/HeroCarousel";
 import { PackageSearch } from "lucide-react";
+import { revalidatePath } from "next/cache";
 
 export const metadata = {
   title: "Motorcycle Spare Parts",
